@@ -1,4 +1,6 @@
-# Guide: Adopting New Models Into The ASAR Framework
+---
+title: "Guide: Adopting New Models Into The ASAR Framework"
+---
 
 This guide describes how to integrate a new assessment model into the ASAR report workflow
 used in `/Users/jim/_mymods/pollock/asar`.

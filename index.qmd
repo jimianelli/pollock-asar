@@ -1,0 +1,20 @@
+---
+title: "Assessment of the Walleye pollock Stock in the Eastern Bering Sea"
+---
+
+Use the left sidebar to switch between:
+
+1. **Assessment Report** (this page)
+2. **Model Adoption Guide**
+
+The full rendered assessment is embedded below.
+
+<iframe
+  src="assessment/Walleye_pollock_SAR_2025.html"
+  title="EBS Walleye Pollock Assessment Report"
+  style="width: 100%; min-height: 88vh; border: 1px solid #d9d9d9; border-radius: 6px;"
+  loading="lazy">
+</iframe>
+
+If the embedded view does not load, open the report directly:
+[Assessment HTML](assessment/Walleye_pollock_SAR_2025.html)

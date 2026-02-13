@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Assessment of the Walleye pollock Stock in the Eastern Bering Sea – EBS Pollock ASAR</title>
+<title>Guide: Adopting New Models Into The ASAR Framework – EBS Pollock ASAR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Assessment Report</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./MODEL_ADOPTION_GUIDE.html">Model Adoption Guide</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -108,13 +108,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assessment Report</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./MODEL_ADOPTION_GUIDE.html" class="sidebar-item-text sidebar-link">
+  <a href="./MODEL_ADOPTION_GUIDE.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Model Adoption Guide</span></a>
   </div>
 </li>
@@ -123,15 +123,38 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#integration-targets" id="toc-integration-targets" class="nav-link active" data-scroll-target="#integration-targets">1) Integration Targets</a></li>
+  <li><a href="#required-data-contracts" id="toc-required-data-contracts" class="nav-link" data-scroll-target="#required-data-contracts">2) Required Data Contracts</a>
+  <ul class="collapse">
+  <li><a href="#out_new-contract" id="toc-out_new-contract" class="nav-link" data-scroll-target="#out_new-contract">2.1 <code>out_new</code> contract</a></li>
+  <li><a href="#labels-expected-by-asar-preamble" id="toc-labels-expected-by-asar-preamble" class="nav-link" data-scroll-target="#labels-expected-by-asar-preamble">2.2 Labels expected by ASAR preamble</a></li>
+  <li><a href="#table-.rda-contract" id="toc-table-.rda-contract" class="nav-link" data-scroll-target="#table-.rda-contract">2.3 Table <code>.rda</code> contract</a></li>
+  <li><a href="#figure-.rda-contract" id="toc-figure-.rda-contract" class="nav-link" data-scroll-target="#figure-.rda-contract">2.4 Figure <code>.rda</code> contract</a></li>
+  </ul></li>
+  <li><a href="#recommended-file-layout" id="toc-recommended-file-layout" class="nav-link" data-scroll-target="#recommended-file-layout">3) Recommended File Layout</a></li>
+  <li><a href="#step-by-step-workflow-for-a-new-model" id="toc-step-by-step-workflow-for-a-new-model" class="nav-link" data-scroll-target="#step-by-step-workflow-for-a-new-model">4) Step-by-Step Workflow For A New Model</a></li>
+  <li><a href="#step-1-build-a-parser-from-native-output-to-out_new" id="toc-step-1-build-a-parser-from-native-output-to-out_new" class="nav-link" data-scroll-target="#step-1-build-a-parser-from-native-output-to-out_new">Step 1: Build a parser from native output to <code>out_new</code></a></li>
+  <li><a href="#step-2-save-standardized-output" id="toc-step-2-save-standardized-output" class="nav-link" data-scroll-target="#step-2-save-standardized-output">Step 2: Save standardized output</a></li>
+  <li><a href="#step-3-generate-tables-and-figures" id="toc-step-3-generate-tables-and-figures" class="nav-link" data-scroll-target="#step-3-generate-tables-and-figures">Step 3: Generate tables and figures</a></li>
+  <li><a href="#step-4-build-or-refresh-the-asar-template" id="toc-step-4-build-or-refresh-the-asar-template" class="nav-link" data-scroll-target="#step-4-build-or-refresh-the-asar-template">Step 4: Build or refresh the ASAR template</a></li>
+  <li><a href="#step-5-render-and-validate" id="toc-step-5-render-and-validate" class="nav-link" data-scroll-target="#step-5-render-and-validate">Step 5: Render and validate</a></li>
+  <li><a href="#qa-checklist-use-every-time" id="toc-qa-checklist-use-every-time" class="nav-link" data-scroll-target="#qa-checklist-use-every-time">5) QA Checklist (Use Every Time)</a></li>
+  <li><a href="#common-failure-modes" id="toc-common-failure-modes" class="nav-link" data-scroll-target="#common-failure-modes">6) Common Failure Modes</a></li>
+  <li><a href="#practical-pattern-for-additional-models" id="toc-practical-pattern-for-additional-models" class="nav-link" data-scroll-target="#practical-pattern-for-additional-models">7) Practical Pattern For Additional Models</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assessment of the Walleye pollock Stock in the Eastern Bering Sea</h1>
+<h1 class="title">Guide: Adopting New Models Into The ASAR Framework</h1>
 </div>
 
 
@@ -148,17 +171,174 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Use the left sidebar to switch between:</p>
+<p>This guide describes how to integrate a new assessment model into the ASAR report workflow used in <code>/Users/jim/_mymods/pollock/asar</code>.</p>
+<section id="integration-targets" class="level2">
+<h2 class="anchored" data-anchor-id="integration-targets">1) Integration Targets</h2>
+<p>A model is considered “ASAR-ready” when you can produce:</p>
 <ol type="1">
-<li><strong>Assessment Report</strong> (this page)</li>
-<li><strong>Model Adoption Guide</strong></li>
+<li>A standardized model-results object named <code>out_new</code> saved as <code>.rda</code>.</li>
+<li>Optional model-comparison tables and figures saved as ASAR-compatible <code>.rda</code> artifacts.</li>
+<li>A report skeleton that renders with <code>asar::create_template()</code>.</li>
 </ol>
-<p>The full rendered assessment is embedded below.</p>
-<iframe src="assessment/Walleye_pollock_SAR_2025.html" title="EBS Walleye Pollock Assessment Report" style="width: 100%; min-height: 88vh; border: 1px solid #d9d9d9; border-radius: 6px;" loading="lazy">
-</iframe>
-<p>If the embedded view does not load, open the report directly: <a href="assessment/Walleye_pollock_SAR_2025.html">Assessment HTML</a></p>
+</section>
+<section id="required-data-contracts" class="level2">
+<h2 class="anchored" data-anchor-id="required-data-contracts">2) Required Data Contracts</h2>
+<section id="out_new-contract" class="level3">
+<h3 class="anchored" data-anchor-id="out_new-contract">2.1 <code>out_new</code> contract</h3>
+<p><code>out_new</code> must be a data frame with the standard stockplotr/ASAR-style columns used by <code>preamble.R</code> (included in the report folder).</p>
+<p>Minimum practical columns to populate correctly:</p>
+<ul>
+<li><code>label</code> (character)</li>
+<li><code>estimate</code> (numeric)</li>
+<li><code>uncertainty</code> (numeric or <code>NA</code>)</li>
+<li><code>year</code> (integer or <code>NA</code>)</li>
+<li><code>era</code> (character; use <code>"time"</code> for annual series rows)</li>
+</ul>
+<p>The bridge script currently writes the full expected column set (33 columns), which is the recommended pattern for compatibility.</p>
+</section>
+<section id="labels-expected-by-asar-preamble" class="level3">
+<h3 class="anchored" data-anchor-id="labels-expected-by-asar-preamble">2.2 Labels expected by ASAR preamble</h3>
+<p>The current preamble logic computes report quantities from these label patterns:</p>
+<ul>
+<li><code>fishing_mortality</code> (time series, terminal year used for <code>Fend</code>)</li>
+<li><code>f_msy</code> or <code>f_target</code> (used for <code>Ftarg</code>)</li>
+<li><code>biomass</code> (terminal <code>Bend</code>)</li>
+<li><code>biomass_msy</code> or <code>biomass_target</code> (used for <code>Btarg</code>/<code>Bmsy</code> logic)</li>
+<li><code>spawning_biomass</code> (terminal <code>SBend</code>)</li>
+<li><code>spawning_biomass_msy</code> (optional, benchmark context)</li>
+<li><code>catch</code> (terminal total catch)</li>
+<li><code>landings_observed</code> (terminal total landings)</li>
+<li><code>natural_mortality</code></li>
+<li><code>beverton_holt_steepness</code></li>
+<li><code>recruitment_unfished</code></li>
+</ul>
+<p>If your model has different native names, map them to these labels in your parser.</p>
+</section>
+<section id="table-.rda-contract" class="level3">
+<h3 class="anchored" data-anchor-id="table-.rda-contract">2.3 Table <code>.rda</code> contract</h3>
+<p>Each table object must be saved as <code>rda &lt;- list(...)</code> containing:</p>
+<ul>
+<li><code>table</code> (usually a <code>flextable</code> object)</li>
+<li><code>cap</code> (caption text)</li>
+</ul>
+<p>Optional but recommended:</p>
+<ul>
+<li><code>caption</code> (duplicate of <code>cap</code> for portability)</li>
+</ul>
+</section>
+<section id="figure-.rda-contract" class="level3">
+<h3 class="anchored" data-anchor-id="figure-.rda-contract">2.4 Figure <code>.rda</code> contract</h3>
+<p>Each figure object must be saved as <code>rda &lt;- list(...)</code> containing:</p>
+<ul>
+<li><code>figure</code> (<code>ggplot</code> or equivalent plot object)</li>
+<li><code>cap</code> (caption text)</li>
+<li><code>alt_text</code> (short accessibility description)</li>
+</ul>
+<p>Optional but recommended:</p>
+<ul>
+<li><code>caption</code> (duplicate of <code>cap</code>)</li>
+</ul>
+</section>
+</section>
+<section id="recommended-file-layout" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-file-layout">3) Recommended File Layout</h2>
+<p>Within <code>/Users/jim/_mymods/pollock/asar</code>:</p>
+<ul>
+<li><code>build_asar_bridge.R</code> (or model-specific bridge script)</li>
+<li><code>report/</code> (ASAR scaffold and <code>std_output_*.rda</code>)</li>
+<li><code>tables/</code> (<code>*_table.rda</code> artifacts)</li>
+<li><code>figures/</code> (<code>*_figure.rda</code> artifacts plus optional PNG/JPG)</li>
+</ul>
+</section>
+<section id="step-by-step-workflow-for-a-new-model" class="level2">
+<h2 class="anchored" data-anchor-id="step-by-step-workflow-for-a-new-model">4) Step-by-Step Workflow For A New Model</h2>
+</section>
+<section id="step-1-build-a-parser-from-native-output-to-out_new" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-build-a-parser-from-native-output-to-out_new">Step 1: Build a parser from native output to <code>out_new</code></h2>
+<p>Create a parser function that:</p>
+<ol type="1">
+<li>Reads native model output files.</li>
+<li>Extracts annual time series for biomass, spawning biomass, recruitment, fishing mortality, and catch/landings where available.</li>
+<li>Extracts static benchmarks (e.g., Fmsy, Bmsy, steepness, R0 proxy).</li>
+<li>Maps all extracted values to ASAR labels.</li>
+</ol>
+<p>Use the same row-builder pattern as in:</p>
+<ul>
+<li><code>/Users/jim/_mymods/pollock/asar/build_asar_bridge.R</code></li>
+</ul>
+</section>
+<section id="step-2-save-standardized-output" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-save-standardized-output">Step 2: Save standardized output</h2>
+<p>Save to report folder as a stable filename, e.g.:</p>
+<ul>
+<li><code>report/std_output_&lt;model&gt;.rda</code></li>
+</ul>
+<p>where the saved object name is exactly <code>out_new</code>.</p>
+</section>
+<section id="step-3-generate-tables-and-figures" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-generate-tables-and-figures">Step 3: Generate tables and figures</h2>
+<p>At minimum, generate:</p>
+<ol type="1">
+<li>One terminal-status table.</li>
+<li>One benchmark/reference table.</li>
+<li>One time-series comparison figure (if multi-model context exists).</li>
+</ol>
+<p>Save each as ASAR-compatible <code>.rda</code> objects in <code>tables/</code> and <code>figures/</code>.</p>
+</section>
+<section id="step-4-build-or-refresh-the-asar-template" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-build-or-refresh-the-asar-template">Step 4: Build or refresh the ASAR template</h2>
+<p>Run <code>asar::create_template()</code> with:</p>
+<ul>
+<li><code>model_results</code> pointing to your <code>std_output_*.rda</code></li>
+<li><code>tables_dir</code> and <code>figures_dir</code> pointing to your artifact folders</li>
+</ul>
+</section>
+<section id="step-5-render-and-validate" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-render-and-validate">Step 5: Render and validate</h2>
+<p>Render the report and confirm that:</p>
+<ol type="1">
+<li>Inline preamble values resolve (no missing object errors).</li>
+<li>Tables and figures appear with captions.</li>
+<li>References to <code>@tbl-*</code> and <code>@fig-*</code> resolve.</li>
+</ol>
+</section>
+<section id="qa-checklist-use-every-time" class="level2">
+<h2 class="anchored" data-anchor-id="qa-checklist-use-every-time">5) QA Checklist (Use Every Time)</h2>
+<ol type="1">
+<li><code>out_new</code> file exists and loads.</li>
+<li>Required labels are present.</li>
+<li><code>estimate</code> and <code>uncertainty</code> are numeric.</li>
+<li><code>year</code> values are valid for time-series rows.</li>
+<li>Table <code>.rda</code> contains <code>table</code> and <code>cap</code>.</li>
+<li>Figure <code>.rda</code> contains <code>figure</code>, <code>cap</code>, and <code>alt_text</code>.</li>
+<li><code>support_files/cjfas.csl</code> exists before render.</li>
+<li>Quarto render succeeds without missing-resource errors.</li>
+</ol>
+</section>
+<section id="common-failure-modes" class="level2">
+<h2 class="anchored" data-anchor-id="common-failure-modes">6) Common Failure Modes</h2>
+<ol type="1">
+<li>Missing <code>cap</code> in <code>.rda</code>: ASAR chunk generation will reference <code>..._cap</code> and fail.</li>
+<li>Missing expected labels in <code>out_new</code>: preamble variables (e.g., <code>Ftarg</code>, <code>SBend</code>) become empty or ambiguous.</li>
+<li>Non-numeric <code>estimate</code>: preamble calculations fail or return <code>NA</code> silently.</li>
+<li>Multiple candidate rows for terminal/reference values: preamble may return vectors instead of scalars. Reduce to one value where appropriate.</li>
+<li>Missing CSL/theme support files: render fails at pandoc stage.</li>
+</ol>
+</section>
+<section id="practical-pattern-for-additional-models" class="level2">
+<h2 class="anchored" data-anchor-id="practical-pattern-for-additional-models">7) Practical Pattern For Additional Models</h2>
+<p>For each new model, add a dedicated parser function and append its outputs to comparison artifacts, while keeping one canonical base-model <code>out_new</code> for report preamble quantities.</p>
+<p>A stable pattern is:</p>
+<ol type="1">
+<li><code>parse_&lt;model&gt;_output()</code></li>
+<li><code>to_out_new_&lt;model&gt;()</code></li>
+<li><code>update_comparison_tables_figures()</code></li>
+<li><code>render_asar_report()</code></li>
+</ol>
+<p>This keeps model ingestion modular while preserving a single, predictable report build path.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

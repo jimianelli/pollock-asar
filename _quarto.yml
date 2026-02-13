@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+    - MODEL_ADOPTION_GUIDE.qmd
+
+website:
+  title: "EBS Pollock ASAR"
+  sidebar:
+    style: docked
+    search: true
+    collapse-level: 1
+    contents:
+      - href: index.qmd
+        text: "Assessment Report"
+      - href: MODEL_ADOPTION_GUIDE.qmd
+        text: "Model Adoption Guide"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    code-copy: true

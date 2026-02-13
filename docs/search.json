@@ -1,0 +1,142 @@
+[
+  {
+    "objectID": "MODEL_ADOPTION_GUIDE.html",
+    "href": "MODEL_ADOPTION_GUIDE.html",
+    "title": "Guide: Adopting New Models Into The ASAR Framework",
+    "section": "",
+    "text": "This guide describes how to integrate a new assessment model into the ASAR report workflow used in /Users/jim/_mymods/pollock/asar.",
+    "crumbs": [
+      "Model Adoption Guide"
+    ]
+  },
+  {
+    "objectID": "MODEL_ADOPTION_GUIDE.html#integration-targets",
+    "href": "MODEL_ADOPTION_GUIDE.html#integration-targets",
+    "title": "Guide: Adopting New Models Into The ASAR Framework",
+    "section": "1) Integration Targets",
+    "text": "1) Integration Targets\nA model is considered “ASAR-ready” when you can produce:\n\nA standardized model-results object named out_new saved as .rda.\nOptional model-comparison tables and figures saved as ASAR-compatible .rda artifacts.\nA report skeleton that renders with asar::create_template().",
+    "crumbs": [
+      "Model Adoption Guide"
+    ]
+  },
+  {
+    "objectID": "MODEL_ADOPTION_GUIDE.html#required-data-contracts",
+    "href": "MODEL_ADOPTION_GUIDE.html#required-data-contracts",
+    "title": "Guide: Adopting New Models Into The ASAR Framework",
+    "section": "2) Required Data Contracts",
+    "text": "2) Required Data Contracts\n\n2.1 out_new contract\nout_new must be a data frame with the standard stockplotr/ASAR-style columns used by preamble.R (included in the report folder).\nMinimum practical columns to populate correctly:\n\nlabel (character)\nestimate (numeric)\nuncertainty (numeric or NA)\nyear (integer or NA)\nera (character; use \"time\" for annual series rows)\n\nThe bridge script currently writes the full expected column set (33 columns), which is the recommended pattern for compatibility.\n\n\n2.2 Labels expected by ASAR preamble\nThe current preamble logic computes report quantities from these label patterns:\n\nfishing_mortality (time series, terminal year used for Fend)\nf_msy or f_target (used for Ftarg)\nbiomass (terminal Bend)\nbiomass_msy or biomass_target (used for Btarg/Bmsy logic)\nspawning_biomass (terminal SBend)\nspawning_biomass_msy (optional, benchmark context)\ncatch (terminal total catch)\nlandings_observed (terminal total landings)\nnatural_mortality\nbeverton_holt_steepness\nrecruitment_unfished\n\nIf your model has different native names, map them to these labels in your parser.\n\n\n2.3 Table .rda contract\nEach table object must be saved as rda &lt;- list(...) containing:\n\ntable (usually a flextable object)\ncap (caption text)\n\nOptional but recommended:\n\ncaption (duplicate of cap for portability)\n\n\n\n2.4 Figure .rda contract\nEach figure object must be saved as rda &lt;- list(...) containing:\n\nfigure (ggplot or equivalent plot object)\ncap (caption text)\nalt_text (short accessibility description)\n\nOptional but recommended:\n\ncaption (duplicate of cap)",
+    "crumbs": [
+      "Model Adoption Guide"
+    ]
+  },
+  {
+    "objectID": "MODEL_ADOPTION_GUIDE.html#recommended-file-layout",
+    "href": "MODEL_ADOPTION_GUIDE.html#recommended-file-layout",
+    "title": "Guide: Adopting New Models Into The ASAR Framework",
+    "section": "3) Recommended File Layout",
+    "text": "3) Recommended File Layout\nWithin /Users/jim/_mymods/pollock/asar:\n\nbuild_asar_bridge.R (or model-specific bridge script)\nreport/ (ASAR scaffold and std_output_*.rda)\ntables/ (*_table.rda artifacts)\nfigures/ (*_figure.rda artifacts plus optional PNG/JPG)",
+    "crumbs": [
+      "Model Adoption Guide"
+    ]
+  },
+  {
+    "objectID": "MODEL_ADOPTION_GUIDE.html#step-by-step-workflow-for-a-new-model",
+    "href": "MODEL_ADOPTION_GUIDE.html#step-by-step-workflow-for-a-new-model",
+    "title": "Guide: Adopting New Models Into The ASAR Framework",
+    "section": "4) Step-by-Step Workflow For A New Model",
+    "text": "4) Step-by-Step Workflow For A New Model",
+    "crumbs": [
+      "Model Adoption Guide"
+    ]
+  },
+  {
+    "objectID": "MODEL_ADOPTION_GUIDE.html#step-1-build-a-parser-from-native-output-to-out_new",
+    "href": "MODEL_ADOPTION_GUIDE.html#step-1-build-a-parser-from-native-output-to-out_new",
+    "title": "Guide: Adopting New Models Into The ASAR Framework",
+    "section": "Step 1: Build a parser from native output to out_new",
+    "text": "Step 1: Build a parser from native output to out_new\nCreate a parser function that:\n\nReads native model output files.\nExtracts annual time series for biomass, spawning biomass, recruitment, fishing mortality, and catch/landings where available.\nExtracts static benchmarks (e.g., Fmsy, Bmsy, steepness, R0 proxy).\nMaps all extracted values to ASAR labels.\n\nUse the same row-builder pattern as in:\n\n/Users/jim/_mymods/pollock/asar/build_asar_bridge.R",
+    "crumbs": [
+      "Model Adoption Guide"
+    ]
+  },
+  {
+    "objectID": "MODEL_ADOPTION_GUIDE.html#step-2-save-standardized-output",
+    "href": "MODEL_ADOPTION_GUIDE.html#step-2-save-standardized-output",
+    "title": "Guide: Adopting New Models Into The ASAR Framework",
+    "section": "Step 2: Save standardized output",
+    "text": "Step 2: Save standardized output\nSave to report folder as a stable filename, e.g.:\n\nreport/std_output_&lt;model&gt;.rda\n\nwhere the saved object name is exactly out_new.",
+    "crumbs": [
+      "Model Adoption Guide"
+    ]
+  },
+  {
+    "objectID": "MODEL_ADOPTION_GUIDE.html#step-3-generate-tables-and-figures",
+    "href": "MODEL_ADOPTION_GUIDE.html#step-3-generate-tables-and-figures",
+    "title": "Guide: Adopting New Models Into The ASAR Framework",
+    "section": "Step 3: Generate tables and figures",
+    "text": "Step 3: Generate tables and figures\nAt minimum, generate:\n\nOne terminal-status table.\nOne benchmark/reference table.\nOne time-series comparison figure (if multi-model context exists).\n\nSave each as ASAR-compatible .rda objects in tables/ and figures/.",
+    "crumbs": [
+      "Model Adoption Guide"
+    ]
+  },
+  {
+    "objectID": "MODEL_ADOPTION_GUIDE.html#step-4-build-or-refresh-the-asar-template",
+    "href": "MODEL_ADOPTION_GUIDE.html#step-4-build-or-refresh-the-asar-template",
+    "title": "Guide: Adopting New Models Into The ASAR Framework",
+    "section": "Step 4: Build or refresh the ASAR template",
+    "text": "Step 4: Build or refresh the ASAR template\nRun asar::create_template() with:\n\nmodel_results pointing to your std_output_*.rda\ntables_dir and figures_dir pointing to your artifact folders",
+    "crumbs": [
+      "Model Adoption Guide"
+    ]
+  },
+  {
+    "objectID": "MODEL_ADOPTION_GUIDE.html#step-5-render-and-validate",
+    "href": "MODEL_ADOPTION_GUIDE.html#step-5-render-and-validate",
+    "title": "Guide: Adopting New Models Into The ASAR Framework",
+    "section": "Step 5: Render and validate",
+    "text": "Step 5: Render and validate\nRender the report and confirm that:\n\nInline preamble values resolve (no missing object errors).\nTables and figures appear with captions.\nReferences to @tbl-* and @fig-* resolve.",
+    "crumbs": [
+      "Model Adoption Guide"
+    ]
+  },
+  {
+    "objectID": "MODEL_ADOPTION_GUIDE.html#qa-checklist-use-every-time",
+    "href": "MODEL_ADOPTION_GUIDE.html#qa-checklist-use-every-time",
+    "title": "Guide: Adopting New Models Into The ASAR Framework",
+    "section": "5) QA Checklist (Use Every Time)",
+    "text": "5) QA Checklist (Use Every Time)\n\nout_new file exists and loads.\nRequired labels are present.\nestimate and uncertainty are numeric.\nyear values are valid for time-series rows.\nTable .rda contains table and cap.\nFigure .rda contains figure, cap, and alt_text.\nsupport_files/cjfas.csl exists before render.\nQuarto render succeeds without missing-resource errors.",
+    "crumbs": [
+      "Model Adoption Guide"
+    ]
+  },
+  {
+    "objectID": "MODEL_ADOPTION_GUIDE.html#common-failure-modes",
+    "href": "MODEL_ADOPTION_GUIDE.html#common-failure-modes",
+    "title": "Guide: Adopting New Models Into The ASAR Framework",
+    "section": "6) Common Failure Modes",
+    "text": "6) Common Failure Modes\n\nMissing cap in .rda: ASAR chunk generation will reference ..._cap and fail.\nMissing expected labels in out_new: preamble variables (e.g., Ftarg, SBend) become empty or ambiguous.\nNon-numeric estimate: preamble calculations fail or return NA silently.\nMultiple candidate rows for terminal/reference values: preamble may return vectors instead of scalars. Reduce to one value where appropriate.\nMissing CSL/theme support files: render fails at pandoc stage.",
+    "crumbs": [
+      "Model Adoption Guide"
+    ]
+  },
+  {
+    "objectID": "MODEL_ADOPTION_GUIDE.html#practical-pattern-for-additional-models",
+    "href": "MODEL_ADOPTION_GUIDE.html#practical-pattern-for-additional-models",
+    "title": "Guide: Adopting New Models Into The ASAR Framework",
+    "section": "7) Practical Pattern For Additional Models",
+    "text": "7) Practical Pattern For Additional Models\nFor each new model, add a dedicated parser function and append its outputs to comparison artifacts, while keeping one canonical base-model out_new for report preamble quantities.\nA stable pattern is:\n\nparse_&lt;model&gt;_output()\nto_out_new_&lt;model&gt;()\nupdate_comparison_tables_figures()\nrender_asar_report()\n\nThis keeps model ingestion modular while preserving a single, predictable report build path.",
+    "crumbs": [
+      "Model Adoption Guide"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Assessment of the Walleye pollock Stock in the Eastern Bering Sea",
+    "section": "",
+    "text": "Use the left sidebar to switch between:\n\nAssessment Report (this page)\nModel Adoption Guide\n\nThe full rendered assessment is embedded below.\n\n\nIf the embedded view does not load, open the report directly: Assessment HTML",
+    "crumbs": [
+      "Assessment Report"
+    ]
+  }
+]

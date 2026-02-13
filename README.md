@@ -46,11 +46,15 @@ Rscript build_asar_bridge.R \
 
 See:
 
-- `/Users/jim/_mymods/pollock/asar/MODEL_ADOPTION_GUIDE.md`
+- `/Users/jim/_mymods/pollock/asar/MODEL_ADOPTION_GUIDE.qmd`
 
 ## GitHub Pages
 
 This repo publishes a static site from `/docs` (GitHub Pages).
+The left sidebar includes:
+
+1. `Assessment Report` (embedded assessment HTML)
+2. `Model Adoption Guide` (rendered from `MODEL_ADOPTION_GUIDE.qmd`)
 
 To refresh the published site after rendering:
 

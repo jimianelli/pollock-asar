@@ -8,3 +8,7 @@ report/*.knit.md
 
 # Local quarto cache
 .quarto/
+
+/.quarto/
+**/*.quarto_ipynb
+MODEL_ADOPTION_GUIDE_files/

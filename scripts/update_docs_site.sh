@@ -7,6 +7,7 @@ REPORT_HTML="$ROOT/report/Walleye_pollock_SAR_2025.html"
 REPORT_ASSETS="$ROOT/report/SAR_EBS_Walleye_pollock_skeleton_files"
 FIGURES_DIR="$ROOT/figures"
 DOCS_DIR="$ROOT/docs"
+ASSESS_DIR="$DOCS_DIR/assessment"
 
 if [[ ! -f "$REPORT_HTML" ]]; then
   echo "Missing report HTML: $REPORT_HTML" >&2
@@ -14,14 +15,20 @@ if [[ ! -f "$REPORT_HTML" ]]; then
   exit 1
 fi
 
-rm -rf "$DOCS_DIR"
-mkdir -p "$DOCS_DIR"
+# Render website pages (index + guide) to docs/.
+quarto render "$ROOT"
 
-cp "$REPORT_HTML" "$DOCS_DIR/index.html"
-cp -R "$REPORT_ASSETS" "$DOCS_DIR/"
-cp -R "$FIGURES_DIR" "$DOCS_DIR/"
+# Copy assessment artifacts used by the embedded iframe on index.qmd.
+rm -rf "$ASSESS_DIR"
+mkdir -p "$ASSESS_DIR"
+cp "$REPORT_HTML" "$ASSESS_DIR/Walleye_pollock_SAR_2025.html"
+cp -R "$REPORT_ASSETS" "$ASSESS_DIR/"
+cp -R "$FIGURES_DIR" "$ASSESS_DIR/"
 
-# Site only needs static image files in docs/figures.
-find "$DOCS_DIR/figures" -type f ! \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.gif' -o -iname '*.svg' -o -iname '*.webp' \) -delete
+# Embedded assessment only needs static image files in assessment/figures.
+find "$ASSESS_DIR/figures" -type f ! \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.gif' -o -iname '*.svg' -o -iname '*.webp' \) -delete
 
-echo "Updated docs site at $DOCS_DIR"
+# Disable Jekyll processing to avoid any underscore/path quirks.
+touch "$DOCS_DIR/.nojekyll"
+
+echo "Updated docs site at $DOCS_DIR (with embedded assessment at $ASSESS_DIR)"
