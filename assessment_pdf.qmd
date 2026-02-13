@@ -1,0 +1,21 @@
+---
+title: "Assessment PDF"
+---
+
+Use the left sidebar to switch between:
+
+1. **Assessment Report** (embedded HTML)
+2. **Assessment PDF** (this page)
+3. **Model Adoption Guide**
+
+The PDF version of the assessment is embedded below.
+
+<iframe
+  src="assessment/Walleye_pollock_SAR_2025.pdf"
+  title="EBS Walleye Pollock Assessment PDF"
+  style="width: 100%; min-height: 88vh; border: 1px solid #d9d9d9; border-radius: 6px;"
+  loading="lazy">
+</iframe>
+
+If the embedded view does not load, open the PDF directly:
+[Assessment PDF](assessment/Walleye_pollock_SAR_2025.pdf)

@@ -5,7 +5,8 @@ title: "Assessment of the Walleye pollock Stock in the Eastern Bering Sea"
 Use the left sidebar to switch between:
 
 1. **Assessment Report** (this page)
-2. **Model Adoption Guide**
+2. **Assessment PDF**
+3. **Model Adoption Guide**
 
 The full rendered assessment is embedded below.
 

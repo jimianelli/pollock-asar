@@ -44,6 +44,7 @@ bibliography:
   - asar_references.bib
 csl: support_files/cjfas.csl
 ---
+\providecommand{\printnoidxglossaries}{}
 \printnoidxglossaries 
 
 ```{r} 

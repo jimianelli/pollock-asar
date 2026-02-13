@@ -134,9 +134,19 @@
     "href": "index.html",
     "title": "Assessment of the Walleye pollock Stock in the Eastern Bering Sea",
     "section": "",
-    "text": "Use the left sidebar to switch between:\n\nAssessment Report (this page)\nModel Adoption Guide\n\nThe full rendered assessment is embedded below.\n\n\nIf the embedded view does not load, open the report directly: Assessment HTML",
+    "text": "Use the left sidebar to switch between:\n\nAssessment Report (this page)\nAssessment PDF\nModel Adoption Guide\n\nThe full rendered assessment is embedded below.\n\n\nIf the embedded view does not load, open the report directly: Assessment HTML",
     "crumbs": [
       "Assessment Report"
+    ]
+  },
+  {
+    "objectID": "assessment_pdf.html",
+    "href": "assessment_pdf.html",
+    "title": "Assessment PDF",
+    "section": "",
+    "text": "Use the left sidebar to switch between:\n\nAssessment Report (embedded HTML)\nAssessment PDF (this page)\nModel Adoption Guide\n\nThe PDF version of the assessment is embedded below.\n\n\nIf the embedded view does not load, open the PDF directly: Assessment PDF",
+    "crumbs": [
+      "Assessment PDF"
     ]
   }
 ]

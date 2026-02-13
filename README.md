@@ -54,11 +54,13 @@ This repo publishes a static site from `/docs` (GitHub Pages).
 The left sidebar includes:
 
 1. `Assessment Report` (embedded assessment HTML)
-2. `Model Adoption Guide` (rendered from `MODEL_ADOPTION_GUIDE.qmd`)
+2. `Assessment PDF` (embedded assessment PDF)
+3. `Model Adoption Guide` (rendered from `MODEL_ADOPTION_GUIDE.qmd`)
 
 To refresh the published site after rendering:
 
 ```bash
 quarto render /Users/jim/_mymods/pollock/asar/report/SAR_EBS_Walleye_pollock_skeleton.qmd --to html
+quarto render /Users/jim/_mymods/pollock/asar/report/SAR_EBS_Walleye_pollock_skeleton.qmd --to pdf --output Walleye_pollock_SAR_2025.pdf
 /Users/jim/_mymods/pollock/asar/scripts/update_docs_site.sh
 ```

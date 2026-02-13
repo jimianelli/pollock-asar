@@ -5,6 +5,9 @@
 report/*.html
 report/*_files/
 report/*.knit.md
+report/*.tex
+report/figures
+Walleye_pollock_SAR_2025.pdf
 
 # Local quarto cache
 .quarto/
