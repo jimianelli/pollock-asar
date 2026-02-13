@@ -99,8 +99,6 @@ model_timeseries_plot
 
 ![Mod Fit Agg Comp.](figures/mod_fit_agg_comp.png){#fig-mod_fit_agg_comp}
 
-![Pollock Cartoon.](figures/pollock_cartoon.png){#fig-pollock_cartoon}
-
 ![Pollock.](figures/pollock.png){#fig-pollock}
 
 ![ProportionsATS.](figures/proportionsATS.png){#fig-proportionsATS}
@@ -118,4 +116,3 @@ model_timeseries_plot
 ![VAST Age Compare.](figures/VAST_Age_Compare.png){#fig-VAST_Age_Compare}
 
 ![Vast Index Updated.](figures/Vast_index_updated.png){#fig-Vast_index_updated}
-

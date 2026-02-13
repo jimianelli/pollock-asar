@@ -30,6 +30,7 @@ format:
   html: 
     theme: [cosmo, support_files/theme.scss]
     mainfont: 'Latin Modern Sans'
+    lightbox: true
     number-sections: true
     toc: true
     toc-depth: 3

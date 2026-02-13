@@ -8,6 +8,7 @@ report/*.knit.md
 report/*.tex
 report/figures
 Walleye_pollock_SAR_2025.pdf
+Walleye_pollock_SAR_2025.html
 
 # Local quarto cache
 .quarto/
