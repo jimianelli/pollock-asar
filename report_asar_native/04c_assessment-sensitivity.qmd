@@ -1,5 +1,5 @@
 ## Sensitivity Analyses {#sec-assmt-sens}
 
-Sensitivity diagnostics from the source assessment workflow are retained as supporting material for this draft, but the main narrative in this ASAR-native version is anchored to the base model represented by `pmout24.rds`.
+Sensitivity diagnostics from the source assessment workflow are retained as supporting material for this draft, but the main narrative in this ASAR-native version is anchored to the base model represented by `pmout24.rds` [@ianelli2023a; @ianelli2015].
 
-The most important uncertainty dimensions remain survey index behavior, recruitment strength, and assumptions tied to stock productivity and selectivity. In this draft, these are documented primarily through retained diagnostics in the Figures section and through status/projection summaries in @tbl-terminal_status and @tbl-near-term-projections.
+The most important uncertainty dimensions remain survey index behavior, recruitment strength, and assumptions tied to stock productivity and selectivity. In this draft, these are documented primarily through retained diagnostics in the Figures section and through status/projection summaries in @tbl-terminal_status and @tbl-near-term-projections [@parma1993].

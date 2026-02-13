@@ -3,16 +3,16 @@
 ## Current Modeling Approach
 
 <!--- Include a short, general overview of the modeling platform, including the reference to the model paper or online reference. If using `asar`, a portion of this will be generated based on the stated model. Please include a short description of changes between the approach from the last assessment cycle to the current. --->
-The base assessment remains a statistical age-structured population model implemented in the established ADMB workflow for EBS pollock. The ASAR-native draft does not change core model equations or estimation targets; it repackages model outputs into a structured report format with standardized table and figure handling.
+The base assessment remains a statistical age-structured population model implemented in the established ADMB workflow for EBS pollock [@fournier1982general; @methot1990; @ianelli1998]. The ASAR-native draft does not change core model equations or estimation targets; it repackages model outputs into a structured report format with standardized table and figure handling [@asar_2025].
 
-Compared with prior SAFE-style documents, the main update in this cycle is integration workflow: converted outputs (`out_new`) and packaged `.rda` artifacts are used directly in the report build, improving traceability and reproducibility of key reported quantities.
+Compared with prior SAFE-style documents, the main update in this cycle is integration workflow: converted outputs (`out_new`) and packaged `.rda` artifacts are used directly in the report build, improving traceability and reproducibility of key reported quantities [@ianelli2023a].
 
 ## Configuration of the Base Model
 
 <!--- Describe the setup of the stock assessment model. --->
-The base model integrates catch biomass, fishery age composition, and multiple fishery-independent indices (BTS, ATS, and AVO), with recruitment and population dynamics estimated across `r start_year`-`r end_year`. Estimated and derived quantities reported here include spawning biomass, recruitment, fishing mortality, and reference points for harvest guidance.
+The base model integrates catch biomass, fishery age composition, and multiple fishery-independent indices (BTS, ATS, and AVO), with recruitment and population dynamics estimated across `r start_year`-`r end_year` [@honkalehto2015; @stienessen2020; @thorson2018b]. Estimated and derived quantities reported here include spawning biomass, recruitment, fishing mortality, and reference points for harvest guidance.
 
 ## Bridging
 
 <!--- Briefly describe the bridging analysis performed to the previous assessment. --->
-Bridging for this ASAR-native product focused on reproducing base-run summaries from the existing assessment outputs rather than re-specifying model alternatives. The translated outputs were checked for consistency of terminal-year status, reference points, and projection rows, and figure/table objects were rebuilt with explicit captions and identifiers for ASAR-native rendering.
+Bridging for this ASAR-native product focused on reproducing base-run summaries from the existing assessment outputs rather than re-specifying model alternatives. The translated outputs were checked for consistency of terminal-year status, reference points, and projection rows, and figure/table objects were rebuilt with explicit captions and identifiers for ASAR-native rendering [@ianelli2023a; @ianelli2021].

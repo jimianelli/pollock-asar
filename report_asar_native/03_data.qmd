@@ -1,34 +1,34 @@
 # Data {#sec-data}
 
 <!--- Provide temporal and spatial resolutions or sample size where appropriate for each of the subsections, below.--->
-This assessment uses fishery and survey information spanning `r start_year`-`r end_year`, with core inputs including catch biomass, age composition, and fishery-independent indices.
+This assessment uses fishery and survey information spanning `r start_year`-`r end_year`, with core inputs including catch biomass, age composition, and fishery-independent indices [@ianelli2023a].
 
 ## Life History
 
 <!-- Describe the stock's growth, maturity, fecundity, natural mortality, meristics, etc. -->
-EBS pollock generally spawn from March through May in regionally persistent areas. Early life stages are planktonic and environmentally sensitive, and juvenile/adult diets shift from zooplankton toward greater piscivory with age, including cannibalism. These life-history characteristics motivate explicit treatment of age structure, growth, maturity, and recruitment variability in the assessment model.
+EBS pollock generally spawn from March through May in regionally persistent areas [@bailey2000; @bacheler2010]. Early life stages are planktonic and environmentally sensitive, and juvenile/adult diets shift from zooplankton toward greater piscivory with age, including cannibalism [@duffy2016; @gann2015; @heintz2013; @hunt2011; @livingston1991; @buckley2015; @ciannelli2004]. These life-history characteristics motivate explicit treatment of age structure, growth, maturity, and recruitment variability in the assessment model.
 
 ## Catch
 
 <!-- Describe the retained and discarded. -->
-Total removals include retained and discarded catch, with fishery records updated through the terminal year. Biological sampling from observer and shoreside programs supports catch-at-age estimation. Relative to earlier periods, modern discard rates are typically low, and catch accounting is closely linked to management-season and sector monitoring.
+Total removals include retained and discarded catch, with fishery records updated through the terminal year. Biological sampling from observer and shoreside programs supports catch-at-age estimation [@barbeaux2005]. Fishery age composition estimation follows long-standing approaches based on age-length keys and catch-weighted stratification [@kimura1989; @dorn1992]. Relative to earlier periods, modern discard rates are typically low, and catch accounting is closely linked to management-season and sector monitoring.
 
 ## Indices and Standardization
 
 <!-- Describe both the fishery dependent and independent data. -->
-Fishery-independent indices include the annual EBS bottom trawl survey (BTS), biennial acoustic-trawl survey (ATS), and the acoustic-vessels-of-opportunity (AVO) index. BTS and ATS provide complementary coverage of near-bottom and midwater pollock components, while AVO contributes additional seasonal acoustic information. A historical fishery-dependent CPUE series is also used for early years.
+Fishery-independent indices include the annual EBS bottom trawl survey (BTS), biennial acoustic-trawl survey (ATS), and the acoustic-vessels-of-opportunity (AVO) index [@kotwicki2013; @honkalehto2015; @honkalehto2011; @stienessen2020]. BTS and ATS provide complementary coverage of near-bottom and midwater pollock components, while AVO contributes additional seasonal acoustic information [@levine2019]. A historical fishery-dependent CPUE series is also used for early years [@low1980]. Spatial standardization approaches in the modern workflow include spatio-temporal modeling developments [@thorson2018b; @oleary2021; @oleary2022].
 
 ## Composition Data
 
 <!-- Describe composition data related to age and length, including  aging error and reweighting. -->
-Age and length compositions are assembled from stratified fishery and survey sampling. Fishery age compositions are built from length-based sampling and age-length keys, and survey compositions are derived from standardized survey biological collections. Composition weighting and uncertainty treatment are handled in the source assessment workflow and carried into this ASAR product through converted outputs and diagnostics.
+Age and length compositions are assembled from stratified fishery and survey sampling. Fishery age compositions are built from length-based sampling and age-length keys, and survey compositions are derived from standardized survey biological collections. Composition weighting and uncertainty treatment are handled in the source assessment workflow and carried into this ASAR product through converted outputs and diagnostics [@ianelli2023a]. Recent work on spatial and cohort-dependent weight-at-age also informs interpretation of composition-linked dynamics [@indivero2023; @cheng2023].
 
 ## Absolute Abundance
 
 <!-- Describe absolute abundance, if applicable. -->
-No single data stream is treated as a direct absolute-abundance estimate. Instead, survey biomass series are used as relative abundance indices with estimated observation error, and absolute scale is inferred jointly through the integrated age-structured model.
+No single data stream is treated as a direct absolute-abundance estimate. Instead, survey biomass series are used as relative abundance indices with estimated observation error, and absolute scale is inferred jointly through the integrated age-structured model [@fournier1982general; @methot1990; @ianelli1998].
 
 ## Environmental/Ecosystem Indicator Data
 
 <!-- Describe the environmental/ecosystem indicator data. If none are considered, include a blanket statement. -->
-Environmental and ecosystem indicators are not fit as direct covariates in the base model for this ASAR build. However, indicator patterns (for example, bottom-temperature anomalies, cold-pool dynamics, prey and predator conditions, and fishery spatial performance metrics) are used qualitatively in interpreting recruitment risk and near-term stock outlook.
+Environmental and ecosystem indicators are not fit as direct covariates in the base model for this ASAR build. However, indicator patterns (for example, bottom-temperature anomalies, cold-pool dynamics, prey and predator conditions, and fishery spatial performance metrics) are used qualitatively in interpreting recruitment risk and near-term stock outlook [@mueter2006; @mueter2011; @moss2009; @swartzman2005; @winter2005; @ianelli2011].

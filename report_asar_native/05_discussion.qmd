@@ -1,17 +1,17 @@
 # Discussion {#sec-discussion}
 
 <!--- The discussion is dependent on analyst/assessment/region. Include subsections discussing ecosystem considerations (if applicable) and research recommendations/improvements to the assessment. --->
-This ASAR-native draft reproduces core base-model conclusions while reducing document complexity relative to the full SAFE report. The terminal stock condition appears comparatively healthy against estimated biomass benchmarks, but uncertainty in future recruitment and productivity remains the central risk driver for medium-term outlook.
+This ASAR-native draft reproduces core base-model conclusions while reducing document complexity relative to the full SAFE report. The terminal stock condition appears comparatively healthy against estimated biomass benchmarks, but uncertainty in future recruitment and productivity remains the central risk driver for medium-term outlook [@ianelli2023a; @ianelli2015].
 
 ## Ecosystem and Fishery Context
 
-Recent EBS conditions highlight the need to interpret stock trends with ecosystem context. Survey and fishery observations continue to show meaningful year-to-year variation in distribution, body condition, and index behavior that may reflect changing temperature fields, prey availability, and predator overlap. Fishery performance indicators are generally consistent with a well-monitored directed fishery, but ecosystem-linked recruitment uncertainty remains substantial.
+Recent EBS conditions highlight the need to interpret stock trends with ecosystem context. Survey and fishery observations continue to show meaningful year-to-year variation in distribution, body condition, and index behavior that may reflect changing temperature fields, prey availability, and predator overlap [@hollowed2012; @oleary2022]. Fishery performance indicators are generally consistent with a well-monitored directed fishery, but ecosystem-linked recruitment uncertainty remains substantial [@stram2014; @ianelli2014].
 
 ## Research Priorities
 
 Priority areas carried forward from the full assessment process include:
 
-1. Continued model-development comparisons across platforms to test structural assumptions and improve robustness.
-2. Further integration of spatial information across BTS, ATS, and AVO data streams, especially for index and composition treatment.
-3. Ongoing work on growth, maturity, and condition dynamics, including climate-linked hypotheses for recruitment variability.
-4. Continued evaluation of harvest-control performance under nonstationary ecosystem conditions.
+1. Continued model-development comparisons across platforms to test structural assumptions and improve robustness [@ianelli2015].
+2. Further integration of spatial information across BTS, ATS, and AVO data streams, especially for index and composition treatment [@thorson2018b; @oleary2021; @oleary2022].
+3. Ongoing work on growth, maturity, and condition dynamics, including climate-linked hypotheses for recruitment variability [@indivero2023; @cheng2023; @mueter2011].
+4. Continued evaluation of harvest-control performance under nonstationary ecosystem conditions [@ianelli2011; @hollowed2012].

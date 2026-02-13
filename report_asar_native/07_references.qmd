@@ -1,4 +1,6 @@
 # References {#sec-refs}
 
+This ASAR-native draft cites both framework references and pollock-specific assessment sources, including historical assessment series and key survey/methods papers [@asar_2025; @ianelli2023a; @ianelli2021; @ianelli2015; @honkalehto2015; @thorson2018b].
+
 ::: {#refs} 
 :::

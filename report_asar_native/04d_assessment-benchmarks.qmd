@@ -3,6 +3,6 @@
 <!-- Decisions on management metrics/benchmarks (e.g., provide a rationale for why a specific F-proxy was recommended for management). -->
 Reference points used in this report are presented in @tbl-reference_points, with terminal and near-term status summaries in @tbl-terminal_status and @tbl-near-term-projections.
 
-Consistent with recent pollock discussions, interpretation should distinguish between benchmark estimation and management application: while MSY-based quantities are estimated, practical harvest guidance is often evaluated through proxy-based control rules (for example, Tier 3-style proxies) when concern remains about full stock-productivity characterization.
+Consistent with recent pollock discussions, interpretation should distinguish between benchmark estimation and management application: while MSY-based quantities are estimated, practical harvest guidance is often evaluated through proxy-based control rules (for example, Tier 3-style proxies) when concern remains about full stock-productivity characterization [@ianelli2015; @thompson1996].
 
 For the terminal year in this build, estimated spawning biomass is `r if (SBend[1] >= Bmsy[1]) "above" else "below"` Bmsy and fishing mortality is `r if (Fend[1] <= Ftarg[1]) "below" else "above"` the target F benchmark.

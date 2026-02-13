@@ -4,9 +4,9 @@
 
 ## Assessment Model
 
-This assessment uses the existing EBS pollock age-structured model workflow and ports core outputs into an ASAR-native document. The model integrates catch, fishery age composition, and fishery-independent indices to estimate population trends and management quantities. For this update, data streams were extended through `r end_year`, with retained emphasis on the base run represented in `pmout24.rds`.
+This assessment uses the existing EBS pollock age-structured model workflow and ports core outputs into an ASAR-native document. The model integrates catch, fishery age composition, and fishery-independent indices to estimate population trends and management quantities [@fournier1982general; @methot1990; @ianelli1998]. For this update, data streams were extended through `r end_year`, with retained emphasis on the base run represented in `pmout24.rds` [@ianelli2023a].
 
-Relative to prior SAFE-style reporting, the main change here is format and reproducibility: the ASAR build reads converted model output (`out_new`) and packaged table/figure objects, while preserving the same biological and management interpretation.
+Relative to prior SAFE-style reporting, the main change here is format and reproducibility: the ASAR build reads converted model output (`out_new`) and packaged table/figure objects, while preserving the same biological and management interpretation [@asar_2025].
 
 ## Reference Points, Stock Status, and Projections
 
