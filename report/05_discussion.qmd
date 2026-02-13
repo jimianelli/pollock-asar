@@ -1,0 +1,22 @@
+# Discussion {#sec-discussion}
+
+The ASAR conversion preserves the technical conclusions from the 2025 EBS pollock work while
+providing a reproducible, modular reporting structure for subsequent updates.
+
+Three themes dominate the current evidence base:
+
+1. ADMB and RTMB formulations can be aligned under matched assumptions, supporting platform
+   modernization without loss of continuity.
+2. Model outcomes remain sensitive to data treatment choices, especially survey weighting and
+   ageing-method assumptions.
+3. Russian-removal uncertainty remains a major unresolved axis for near-term scenario analysis.
+
+Recommended priorities for the next update cycle are:
+
+1. Extend the base run with the newest survey and fishery updates.
+2. Maintain focused sensitivity/profiling work on weighting and process-variance settings.
+3. Expand scenario communication through integrated benchmark/projection tables.
+4. Continue closure of open review recommendations from the 2025 cycle.
+
+This report can therefore serve as an operational draft scaffold for rapid update rather than
+as a static one-off conversion artifact.

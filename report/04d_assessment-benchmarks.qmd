@@ -1,0 +1,15 @@
+## Management Benchmarks {#sec-assmt-bench}
+
+Reference-point quantities are drawn from the ADMB benchmark products and summarized in
+@tbl-reference_points.
+
+For the terminal year, key benchmark relationships are:
+
+- `Fend =` `r round(Fend, 4)`
+- `Ftarg (reference F) =` `r round(Ftarg, 4)`
+- `F/Ftarg =` `r round(F_Ftarg, 3)`
+- `SBend =` `r format(round(SBend, 2), big.mark = ',')`
+- `Bmsy proxy =` `r format(round(Bmsy, 2), big.mark = ',')`
+
+These values are directly generated from the standardized report object and should be read in
+conjunction with the source 2025 benchmark interpretations.

@@ -1,0 +1,47 @@
+\appendix
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+# Appendices {#sec-appendix}
+
+## Reproducibility Notes
+
+This ASAR report is built from source files in:
+
+- `/Users/jim/_mymods/noaa-afsc/ebs_pollock`
+- `/Users/jim/_mymods/pollock/asar`
+
+Key input files used in this build are listed below.
+
+```{r}
+#| label: tbl-bridge-input-files
+#| tbl-cap: "Key source files used in this ASAR report build."
+#| echo: false
+#| warning: false
+#| message: false
+input_files <- c(
+  "/Users/jim/_mymods/noaa-afsc/ebs_pollock/runs/lastyr/pm.rep",
+  "/Users/jim/_mymods/noaa-afsc/ebs_pollock/runs/lastyr/pm.par",
+  "/Users/jim/_mymods/noaa-afsc/ebs_pollock/runs/lastyr/F40_t.rep",
+  "/Users/jim/_mymods/noaa-afsc/ebs_pollock/compares.qs",
+  "/Users/jim/_mymods/pollock/asar/report/std_output_admb.rda"
+)
+
+dplyr::tibble(
+  file = input_files,
+  exists = file.exists(input_files),
+  modified_time = ifelse(
+    file.exists(input_files),
+    as.character(file.info(input_files)$mtime),
+    NA_character_
+  )
+)
+```
+
+## Figure and Table Packaging Notes
+
+ASAR uses packaged `.rda` objects for programmatic inclusion:
+
+1. Tables require `table` and `cap` fields (caption text may also be stored as `caption`).
+2. Figures require `figure`, `cap`, and (for accessibility) `alt_text`.
+3. Existing static figures can be included directly as PNG/JPG with explicit captions.

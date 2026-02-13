@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jim Ianelli">
+<meta name="author" content="Carey McGilliard">
+<meta name="author" content="Sophia Wassermann">
+<meta name="dcterms.date" content="2026-02-12">
+
+<title>Assessment of the Walleye pollock Stock in the Eastern Bering Sea</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="SAR_EBS_Walleye_pollock_skeleton_files/libs/clipboard/clipboard.min.js"></script>
+<script src="SAR_EBS_Walleye_pollock_skeleton_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="SAR_EBS_Walleye_pollock_skeleton_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="SAR_EBS_Walleye_pollock_skeleton_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="SAR_EBS_Walleye_pollock_skeleton_files/libs/quarto-html/popper.min.js"></script>
+<script src="SAR_EBS_Walleye_pollock_skeleton_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="SAR_EBS_Walleye_pollock_skeleton_files/libs/quarto-html/anchor.min.js"></script>
+<link href="SAR_EBS_Walleye_pollock_skeleton_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="SAR_EBS_Walleye_pollock_skeleton_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="SAR_EBS_Walleye_pollock_skeleton_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="SAR_EBS_Walleye_pollock_skeleton_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="SAR_EBS_Walleye_pollock_skeleton_files/libs/bootstrap/bootstrap-e6483f8fd344cf8f6f6afbd3ad7e3107.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="SAR_EBS_Walleye_pollock_skeleton_files/libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="SAR_EBS_Walleye_pollock_skeleton_files/libs/tabwid-1.1.3/tabwid.js"></script>
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-exec-sum" id="toc-sec-exec-sum" class="nav-link active" data-scroll-target="#sec-exec-sum"><span class="header-section-number">1</span> Executive Summary</a>
+  <ul class="collapse">
+  <li><a href="#assessment-model" id="toc-assessment-model" class="nav-link" data-scroll-target="#assessment-model"><span class="header-section-number">1.1</span> Assessment Model</a></li>
+  <li><a href="#stock-status-and-benchmarks" id="toc-stock-status-and-benchmarks" class="nav-link" data-scroll-target="#stock-status-and-benchmarks"><span class="header-section-number">1.2</span> Stock Status and Benchmarks</a></li>
+  <li><a href="#summary-of-2025-development-priorities" id="toc-summary-of-2025-development-priorities" class="nav-link" data-scroll-target="#summary-of-2025-development-priorities"><span class="header-section-number">1.3</span> Summary of 2025 Development Priorities</a></li>
+  </ul></li>
+  <li><a href="#sec-intro" id="toc-sec-intro" class="nav-link" data-scroll-target="#sec-intro"><span class="header-section-number">2</span> Introduction</a>
+  <ul class="collapse">
+  <li><a href="#stock-id" id="toc-stock-id" class="nav-link" data-scroll-target="#stock-id"><span class="header-section-number">2.1</span> Stock ID</a></li>
+  <li><a href="#management-context" id="toc-management-context" class="nav-link" data-scroll-target="#management-context"><span class="header-section-number">2.2</span> Management Context</a></li>
+  <li><a href="#fishery-and-survey-context" id="toc-fishery-and-survey-context" class="nav-link" data-scroll-target="#fishery-and-survey-context"><span class="header-section-number">2.3</span> Fishery and Survey Context</a></li>
+  <li><a href="#ecosystem-considerations" id="toc-ecosystem-considerations" class="nav-link" data-scroll-target="#ecosystem-considerations"><span class="header-section-number">2.4</span> Ecosystem Considerations</a></li>
+  </ul></li>
+  <li><a href="#sec-data" id="toc-sec-data" class="nav-link" data-scroll-target="#sec-data"><span class="header-section-number">3</span> Data</a>
+  <ul class="collapse">
+  <li><a href="#life-history" id="toc-life-history" class="nav-link" data-scroll-target="#life-history"><span class="header-section-number">3.1</span> Life History</a></li>
+  <li><a href="#catch" id="toc-catch" class="nav-link" data-scroll-target="#catch"><span class="header-section-number">3.2</span> Catch</a></li>
+  <li><a href="#indices-and-standardization" id="toc-indices-and-standardization" class="nav-link" data-scroll-target="#indices-and-standardization"><span class="header-section-number">3.3</span> Indices and Standardization</a></li>
+  <li><a href="#composition-data" id="toc-composition-data" class="nav-link" data-scroll-target="#composition-data"><span class="header-section-number">3.4</span> Composition Data</a></li>
+  <li><a href="#absolute-abundance" id="toc-absolute-abundance" class="nav-link" data-scroll-target="#absolute-abundance"><span class="header-section-number">3.5</span> Absolute Abundance</a></li>
+  <li><a href="#environmental-and-ecosystem-indicators" id="toc-environmental-and-ecosystem-indicators" class="nav-link" data-scroll-target="#environmental-and-ecosystem-indicators"><span class="header-section-number">3.6</span> Environmental and Ecosystem Indicators</a></li>
+  </ul></li>
+  <li><a href="#sec-assmt-config" id="toc-sec-assmt-config" class="nav-link" data-scroll-target="#sec-assmt-config"><span class="header-section-number">4</span> Assessment</a>
+  <ul class="collapse">
+  <li><a href="#current-modeling-approach" id="toc-current-modeling-approach" class="nav-link" data-scroll-target="#current-modeling-approach"><span class="header-section-number">4.1</span> Current Modeling Approach</a></li>
+  <li><a href="#configuration-of-the-base-model" id="toc-configuration-of-the-base-model" class="nav-link" data-scroll-target="#configuration-of-the-base-model"><span class="header-section-number">4.2</span> Configuration of the Base Model</a></li>
+  <li><a href="#bridging-and-standardization" id="toc-bridging-and-standardization" class="nav-link" data-scroll-target="#bridging-and-standardization"><span class="header-section-number">4.3</span> Bridging and Standardization</a></li>
+  <li><a href="#sec-assmt-results" id="toc-sec-assmt-results" class="nav-link" data-scroll-target="#sec-assmt-results"><span class="header-section-number">4.4</span> Modeling Results</a>
+  <ul class="collapse">
+  <li><a href="#parameter-estimates" id="toc-parameter-estimates" class="nav-link" data-scroll-target="#parameter-estimates"><span class="header-section-number">4.4.1</span> Parameter Estimates</a></li>
+  <li><a href="#time-series" id="toc-time-series" class="nav-link" data-scroll-target="#time-series"><span class="header-section-number">4.4.2</span> Time Series</a></li>
+  <li><a href="#model-fits" id="toc-model-fits" class="nav-link" data-scroll-target="#model-fits"><span class="header-section-number">4.4.3</span> Model Fits</a></li>
+  <li><a href="#model-diagnostics" id="toc-model-diagnostics" class="nav-link" data-scroll-target="#model-diagnostics"><span class="header-section-number">4.4.4</span> Model Diagnostics</a></li>
+  </ul></li>
+  <li><a href="#sec-assmt-sens" id="toc-sec-assmt-sens" class="nav-link" data-scroll-target="#sec-assmt-sens"><span class="header-section-number">4.5</span> Sensitivity Analyses</a>
+  <ul class="collapse">
+  <li><a href="#data-component-sensitivity" id="toc-data-component-sensitivity" class="nav-link" data-scroll-target="#data-component-sensitivity"><span class="header-section-number">4.5.1</span> Data-Component Sensitivity</a></li>
+  <li><a href="#ageing-and-composition-treatment" id="toc-ageing-and-composition-treatment" class="nav-link" data-scroll-target="#ageing-and-composition-treatment"><span class="header-section-number">4.5.2</span> Ageing and Composition Treatment</a></li>
+  <li><a href="#natural-mortality-and-structural-assumptions" id="toc-natural-mortality-and-structural-assumptions" class="nav-link" data-scroll-target="#natural-mortality-and-structural-assumptions"><span class="header-section-number">4.5.3</span> Natural Mortality and Structural Assumptions</a></li>
+  <li><a href="#platform-and-formulation-comparisons" id="toc-platform-and-formulation-comparisons" class="nav-link" data-scroll-target="#platform-and-formulation-comparisons"><span class="header-section-number">4.5.4</span> Platform and Formulation Comparisons</a></li>
+  <li><a href="#russian-removal-uncertainty" id="toc-russian-removal-uncertainty" class="nav-link" data-scroll-target="#russian-removal-uncertainty"><span class="header-section-number">4.5.5</span> Russian Removal Uncertainty</a></li>
+  </ul></li>
+  <li><a href="#sec-assmt-bench" id="toc-sec-assmt-bench" class="nav-link" data-scroll-target="#sec-assmt-bench"><span class="header-section-number">4.6</span> Management Benchmarks</a></li>
+  <li><a href="#sec-assmt-proj" id="toc-sec-assmt-proj" class="nav-link" data-scroll-target="#sec-assmt-proj"><span class="header-section-number">4.7</span> Projections</a></li>
+  </ul></li>
+  <li><a href="#sec-discussion" id="toc-sec-discussion" class="nav-link" data-scroll-target="#sec-discussion"><span class="header-section-number">5</span> Discussion</a></li>
+  <li><a href="#sec-acknowledgements" id="toc-sec-acknowledgements" class="nav-link" data-scroll-target="#sec-acknowledgements"><span class="header-section-number">6</span> Acknowledgements</a></li>
+  <li><a href="#sec-refs" id="toc-sec-refs" class="nav-link" data-scroll-target="#sec-refs"><span class="header-section-number">7</span> References</a></li>
+  <li><a href="#sec-tables" id="toc-sec-tables" class="nav-link" data-scroll-target="#sec-tables"><span class="header-section-number">8</span> Tables</a></li>
+  <li><a href="#sec-figures" id="toc-sec-figures" class="nav-link" data-scroll-target="#sec-figures"><span class="header-section-number">9</span> Figures</a></li>
+  <li><a href="#sec-appendix" id="toc-sec-appendix" class="nav-link" data-scroll-target="#sec-appendix"><span class="header-section-number">10</span> Appendices</a>
+  <ul class="collapse">
+  <li><a href="#reproducibility-notes" id="toc-reproducibility-notes" class="nav-link" data-scroll-target="#reproducibility-notes"><span class="header-section-number">10.1</span> Reproducibility Notes</a></li>
+  <li><a href="#figure-and-table-packaging-notes" id="toc-figure-and-table-packaging-notes" class="nav-link" data-scroll-target="#figure-and-table-packaging-notes"><span class="header-section-number">10.2</span> Figure and Table Packaging Notes</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Assessment of the Walleye pollock Stock in the Eastern Bering Sea</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Authors</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Jim Ianelli </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Alaska Fisheries Science Center, NOAA Fisheries
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Carey McGilliard </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Alaska Fisheries Science Center, NOAA Fisheries
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Sophia Wassermann </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Alaska Fisheries Science Center, NOAA Fisheries
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 12, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div style="page-break-after: always;"></div>
+<section id="disclaimer" class="level2 unnumbered unlisted">
+<h2 class="unnumbered unlisted anchored" data-anchor-id="disclaimer">Disclaimer</h2>
+<p>These materials do not constitute a formal publication and are for information only. They are in a pre-review, pre-decisional state and should not be formally cited or reproduced. They are to be considered provisional and do not represent any determination or policy of NOAA or the Department of Commerce.</p>
+<div style="page-break-after: always;"></div>
+<p>Please cite this publication as:</p>
+<p>Ianelli, J., C. McGilliard, and S. Wassermann. 2025. Assessment of the Walleye pollock Stock in the Eastern Bering Sea. National Marine Fisheries Service, Seattle, WA. pp.</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="sec-exec-sum" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Executive Summary</h1>
+<p>This document presents the 2025 Eastern Bering Sea (EBS) walleye pollock assessment in the ASAR framework, using the same underlying assessment outputs developed in the source EBS pollock project.</p>
+<section id="assessment-model" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="assessment-model"><span class="header-section-number">1.1</span> Assessment Model</h2>
+<p>The base model remains the established ADMB implementation used in recent AFSC cycles. For this ASAR report, base-model outputs were standardized into the <code>out_new</code> structure from ADMB report products, and complementary cross-model diagnostics were retained from the 2025 comparison workflow.</p>
+</section>
+<section id="stock-status-and-benchmarks" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="stock-status-and-benchmarks"><span class="header-section-number">1.2</span> Stock Status and Benchmarks</h2>
+<p>The terminal assessment year in this report is 2024. Key terminal quantities are:</p>
+<ul>
+<li>Spawning biomass (<code>SBend</code>): 3,389.48</li>
+<li>Fishing mortality (<code>Fend</code>): 0.1449</li>
+<li>Reference fishing mortality (<code>Ftarg</code>): 0.499</li>
+<li>Relative fishing pressure (<code>F/Ftarg</code>): 0.29</li>
+</ul>
+<p>Benchmark and terminal summaries are provided in <a href="#tbl-reference_points" class="quarto-xref">Table&nbsp;3</a> and <a href="#tbl-terminal_status" class="quarto-xref">Table&nbsp;4</a>.</p>
+</section>
+<section id="summary-of-2025-development-priorities" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="summary-of-2025-development-priorities"><span class="header-section-number">1.3</span> Summary of 2025 Development Priorities</h2>
+<p>The 2025 assessment development documents identify three primary technical priorities:</p>
+<ol type="1">
+<li>Continued ADMB-to-RTMB bridging and validation.</li>
+<li>Expanded sensitivity evaluation of data treatment and model assumptions.</li>
+<li>Improved treatment of uncertainty associated with Russian removals and transboundary dynamics.</li>
+</ol>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="sec-intro" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Introduction</h1>
+<p>This report provides an ASAR-formatted assessment narrative for EBS walleye pollock, consolidating material prepared for the 2025 CIE review cycle and subsequent September 2025 assessment development updates.</p>
+<section id="stock-id" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="stock-id"><span class="header-section-number">2.1</span> Stock ID</h2>
+<p>The assessed stock is EBS walleye pollock (<em>Gadus chalcogrammus</em>). The assessment supports AFSC scientific advice and NPFMC management decision-making, including annual ABC/OFL determinations.</p>
+</section>
+<section id="management-context" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="management-context"><span class="header-section-number">2.2</span> Management Context</h2>
+<p>Recent assessment cycles have maintained continuity in the operational base model while expanding technical evaluations of uncertainty. In 2025, emphasis was placed on:</p>
+<ol type="1">
+<li>Demonstrating reproducible alignment between ADMB and RTMB formulations.</li>
+<li>Evaluating sensitivity to data treatment (including survey influence and ageing methods).</li>
+<li>Prioritizing unresolved uncertainty related to Russian removals and stock structure assumptions.</li>
+</ol>
+</section>
+<section id="fishery-and-survey-context" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="fishery-and-survey-context"><span class="header-section-number">2.3</span> Fishery and Survey Context</h2>
+<p>The assessment integrates long-term fishery catch/composition information with fishery- independent survey indices, including BTS, ATS, and AVO-related data products. These information streams remain central to trend estimation, diagnostics, and sensitivity analysis.</p>
+</section>
+<section id="ecosystem-considerations" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="ecosystem-considerations"><span class="header-section-number">2.4</span> Ecosystem Considerations</h2>
+<p>Ecosystem and climate context are included as supporting evidence (for example, condition and recruitment context, and multispecies mortality exploration), but are not yet implemented as direct ecosystem-coupled dynamic equations in the base operating model.</p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="sec-data" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Data</h1>
+<p>Data treatment in this report follows the 2025 EBS pollock assessment workflow and preserves its primary fishery and survey information pathways.</p>
+<section id="life-history" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="life-history"><span class="header-section-number">3.1</span> Life History</h2>
+<p>Core life-history assumptions include maturity, growth, and natural mortality-at-age. The mean natural mortality represented in the standardized report object is 0.35.</p>
+</section>
+<section id="catch" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="catch"><span class="header-section-number">3.2</span> Catch</h2>
+<p>Observed catch is imported from the ADMB base run through 2024. Terminal-year total catch in the standardized object is 1,300.</p>
+</section>
+<section id="indices-and-standardization" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="indices-and-standardization"><span class="header-section-number">3.3</span> Indices and Standardization</h2>
+<p>Primary fishery-independent and auxiliary index streams are:</p>
+<ol type="1">
+<li>EBS bottom-trawl survey (BTS)</li>
+<li>Acoustic-trawl survey (ATS)</li>
+<li>AVO-related index information</li>
+</ol>
+<p>Comparative index diagnostics retained in this report include <a href="#fig-loo_bts_index" class="quarto-xref">Figure&nbsp;18</a>, <a href="#fig-loo_ats_index" class="quarto-xref">Figure&nbsp;14</a>, and <a href="#fig-loo_avo_index" class="quarto-xref">Figure&nbsp;16</a>.</p>
+</section>
+<section id="composition-data" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="composition-data"><span class="header-section-number">3.4</span> Composition Data</h2>
+<p>Composition analyses in 2025 included direct contrast of traditional microscope ageing (TMA) and FT-NIR methods. Relevant diagnostics included in this report are:</p>
+<ul>
+<li>Cohort consistency: <a href="#fig-consisTMA" class="quarto-xref">Figure&nbsp;6</a> and <a href="#fig-consisFTN" class="quarto-xref">Figure&nbsp;5</a></li>
+<li>Proportion-at-age contrasts: <a href="#fig-proportionsFSH" class="quarto-xref">Figure&nbsp;37</a>, <a href="#fig-proportionsBTS" class="quarto-xref">Figure&nbsp;36</a>, <a href="#fig-proportionsATS" class="quarto-xref">Figure&nbsp;35</a></li>
+<li>Input-structure schematic: <a href="#fig-DataFile" class="quarto-xref">Figure&nbsp;8</a></li>
+</ul>
+</section>
+<section id="absolute-abundance" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="absolute-abundance"><span class="header-section-number">3.5</span> Absolute Abundance</h2>
+<p>Absolute abundance is inferred through model-data integration of survey indices and composition information. No new direct absolute-abundance estimator is introduced in this ASAR pass.</p>
+</section>
+<section id="environmental-and-ecosystem-indicators" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="environmental-and-ecosystem-indicators"><span class="header-section-number">3.6</span> Environmental and Ecosystem Indicators</h2>
+<p>Environmental and ecosystem indicators are retained as contextual evidence in this report version. No additional covariate modeling was introduced during the ASAR conversion step.</p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="sec-assmt-config" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Assessment</h1>
+<section id="current-modeling-approach" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="current-modeling-approach"><span class="header-section-number">4.1</span> Current Modeling Approach</h2>
+<p>The base assessment is the operational ADMB pollock model configuration used in recent AFSC cycles. In parallel, 2025 technical work evaluated RTMB implementation and bridging performance to ensure continuity of key quantities and diagnostics.</p>
+<p>This ASAR report preserves the base-model results while standardizing delivery of tables, figures, and core summary quantities.</p>
+</section>
+<section id="configuration-of-the-base-model" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="configuration-of-the-base-model"><span class="header-section-number">4.2</span> Configuration of the Base Model</h2>
+<p>The standardized model-results object (<code>std_output_admb.rda</code>) is assembled from base-run ADMB products and supplies the report preamble quantities used throughout the document.</p>
+<p>Core report range and terminal summaries are:</p>
+<ul>
+<li>Year range: 1964-2024</li>
+<li>Terminal spawning biomass: 3,389.48</li>
+<li>Terminal fishing mortality: 0.1449</li>
+<li>Reference fishing mortality: 0.499</li>
+</ul>
+</section>
+<section id="bridging-and-standardization" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="bridging-and-standardization"><span class="header-section-number">4.3</span> Bridging and Standardization</h2>
+<p>Two forms of bridging are represented:</p>
+<ol type="1">
+<li><strong>Model-platform bridging</strong>: ADMB-to-RTMB consistency checks from the 2025 source work.</li>
+<li><strong>Reporting-framework bridging</strong>: translation of existing model outputs into ASAR-native tables and figures (see <a href="#tbl-terminal_status" class="quarto-xref">Table&nbsp;4</a> and <a href="#fig-model_timeseries" class="quarto-xref">Figure&nbsp;1</a>).</li>
+</ol>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="sec-assmt-results" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="sec-assmt-results"><span class="header-section-number">4.4</span> Modeling Results</h2>
+<section id="parameter-estimates" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="parameter-estimates"><span class="header-section-number">4.4.1</span> Parameter Estimates</h3>
+<p>Key base-model quantities are summarized in <a href="#tbl-reference_points" class="quarto-xref">Table&nbsp;3</a>. Important values used in this report include:</p>
+<ul>
+<li>Steepness: 0.622</li>
+<li>Unfished recruitment proxy (<code>R0</code>): 23,694</li>
+<li>Mean natural mortality: 0.35</li>
+</ul>
+</section>
+<section id="time-series" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="time-series"><span class="header-section-number">4.4.2</span> Time Series</h3>
+<p>Time-series trajectories for spawning biomass and recruitment across model runs are shown in <a href="#fig-model_timeseries" class="quarto-xref">Figure&nbsp;1</a>. Terminal-year cross-model values are summarized in <a href="#tbl-terminal_status" class="quarto-xref">Table&nbsp;4</a>.</p>
+</section>
+<section id="model-fits" class="level3" data-number="4.4.3">
+<h3 data-number="4.4.3" class="anchored" data-anchor-id="model-fits"><span class="header-section-number">4.4.3</span> Model Fits</h3>
+<p>Model-fit diagnostics imported from the 2025 source workflow are retained in the figures section, including composition and index fit summaries (for example <a href="#fig-mod_fit_agg_comp" class="quarto-xref">Figure&nbsp;32</a>, <a href="#fig-bts_osa" class="quarto-xref">Figure&nbsp;4</a>, and <a href="#fig-ats_osa" class="quarto-xref">Figure&nbsp;2</a>).</p>
+</section>
+<section id="model-diagnostics" class="level3" data-number="4.4.4">
+<h3 data-number="4.4.4" class="anchored" data-anchor-id="model-diagnostics"><span class="header-section-number">4.4.4</span> Model Diagnostics</h3>
+<div id="tbl-admb-header" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-admb-header-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Selected ADMB optimization diagnostics from <code>pm.par</code> header metadata.
+</figcaption>
+<div aria-describedby="tbl-admb-header-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  metric               value
+  &lt;chr&gt;                &lt;dbl&gt;
+1 Number of parameters 1366 
+2 Objective function   7294.
+3 Maximum gradient        0 </code></pre>
+</div>
+</div>
+</figure>
+</div>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="sec-assmt-sens" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="sec-assmt-sens"><span class="header-section-number">4.5</span> Sensitivity Analyses</h2>
+<p>Sensitivity analyses retained from the 2025 assessment workflow are summarized below.</p>
+<section id="data-component-sensitivity" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="data-component-sensitivity"><span class="header-section-number">4.5.1</span> Data-Component Sensitivity</h3>
+<p>Leave-one-out evaluations indicate that model behavior is most sensitive to bottom-trawl survey information relative to other index components. Key diagnostics include:</p>
+<ul>
+<li>Relative SSB trajectories: <a href="#fig-loo_rel_ssb" class="quarto-xref">Figure&nbsp;22</a></li>
+<li>Recruitment trajectories: <a href="#fig-loo_recruits" class="quarto-xref">Figure&nbsp;20</a></li>
+<li>Survey-index fits: <a href="#fig-loo_bts_index" class="quarto-xref">Figure&nbsp;18</a>, <a href="#fig-loo_ats_index" class="quarto-xref">Figure&nbsp;14</a>, <a href="#fig-loo_avo_index" class="quarto-xref">Figure&nbsp;16</a></li>
+</ul>
+</section>
+<section id="ageing-and-composition-treatment" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="ageing-and-composition-treatment"><span class="header-section-number">4.5.2</span> Ageing and Composition Treatment</h3>
+<p>Uncertainty associated with ageing methods remains an active focus. Comparisons between TMA and FT-NIR products are shown in <a href="#fig-consisTMA" class="quarto-xref">Figure&nbsp;6</a>, <a href="#fig-consisFTN" class="quarto-xref">Figure&nbsp;5</a>, <a href="#fig-proportionsFSH" class="quarto-xref">Figure&nbsp;37</a>, <a href="#fig-proportionsBTS" class="quarto-xref">Figure&nbsp;36</a>, and <a href="#fig-proportionsATS" class="quarto-xref">Figure&nbsp;35</a>.</p>
+</section>
+<section id="natural-mortality-and-structural-assumptions" class="level3" data-number="4.5.3">
+<h3 data-number="4.5.3" class="anchored" data-anchor-id="natural-mortality-and-structural-assumptions"><span class="header-section-number">4.5.3</span> Natural Mortality and Structural Assumptions</h3>
+<p>Alternative mortality-related assumptions and associated effects are represented in retained sensitivity figures (for example <a href="#fig-Mmat_ssb" class="quarto-xref">Figure&nbsp;31</a> and <a href="#fig-Mmat_recruits" class="quarto-xref">Figure&nbsp;29</a>).</p>
+</section>
+<section id="platform-and-formulation-comparisons" class="level3" data-number="4.5.4">
+<h3 data-number="4.5.4" class="anchored" data-anchor-id="platform-and-formulation-comparisons"><span class="header-section-number">4.5.4</span> Platform and Formulation Comparisons</h3>
+<p>The source workflow included comparisons across ADMB, RTMB, SS3, SAM, and related formulations to evaluate robustness of trend interpretation and identify implementation priorities.</p>
+</section>
+<section id="russian-removal-uncertainty" class="level3" data-number="4.5.5">
+<h3 data-number="4.5.5" class="anchored" data-anchor-id="russian-removal-uncertainty"><span class="header-section-number">4.5.5</span> Russian Removal Uncertainty</h3>
+<p>Review-response materials identify Russian removals as a high-priority unresolved uncertainty. That priority is carried forward here and remains central to upcoming scenario development.</p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="sec-assmt-bench" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="sec-assmt-bench"><span class="header-section-number">4.6</span> Management Benchmarks</h2>
+<p>Reference-point quantities are drawn from the ADMB benchmark products and summarized in <a href="#tbl-reference_points" class="quarto-xref">Table&nbsp;3</a>.</p>
+<p>For the terminal year, key benchmark relationships are:</p>
+<ul>
+<li><code>Fend =</code> 0.1449</li>
+<li><code>Ftarg (reference F) =</code> 0.499</li>
+<li><code>F/Ftarg =</code> 0.29</li>
+<li><code>SBend =</code> 3,389.48</li>
+<li><code>Bmsy proxy =</code> 2,400.99</li>
+</ul>
+<p>These values are directly generated from the standardized report object and should be read in conjunction with the source 2025 benchmark interpretations.</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="sec-assmt-proj" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="sec-assmt-proj"><span class="header-section-number">4.7</span> Projections</h2>
+<p>Near-term projection rows are available in the benchmark file and are extracted below for years greater than the terminal assessment year.</p>
+<div id="tbl-near-term-projections" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-near-term-projections-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Near-term projection rows from <code>F40_t.rep</code> (years greater than terminal year).
+</figcaption>
+<div aria-describedby="tbl-near-term-projections-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 7
+   Year   SSB `B/Bmsy` meanF  Fmsy `F/Fmsy`   F35
+  &lt;int&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+1  2025 5227.     2.14 0.199 0.580    0.343 0.513
+2  2026 4968.     2.04 0.199 0.580    0.343 0.513</code></pre>
+</div>
+</div>
+</figure>
+</div>
+<p>Projection interpretation should follow the same assumptions and caveats described in the source 2025 assessment workflow.</p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="sec-discussion" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Discussion</h1>
+<p>The ASAR conversion preserves the technical conclusions from the 2025 EBS pollock work while providing a reproducible, modular reporting structure for subsequent updates.</p>
+<p>Three themes dominate the current evidence base:</p>
+<ol type="1">
+<li>ADMB and RTMB formulations can be aligned under matched assumptions, supporting platform modernization without loss of continuity.</li>
+<li>Model outcomes remain sensitive to data treatment choices, especially survey weighting and ageing-method assumptions.</li>
+<li>Russian-removal uncertainty remains a major unresolved axis for near-term scenario analysis.</li>
+</ol>
+<p>Recommended priorities for the next update cycle are:</p>
+<ol type="1">
+<li>Extend the base run with the newest survey and fishery updates.</li>
+<li>Maintain focused sensitivity/profiling work on weighting and process-variance settings.</li>
+<li>Expand scenario communication through integrated benchmark/projection tables.</li>
+<li>Continue closure of open review recommendations from the 2025 cycle.</li>
+</ol>
+<p>This report can therefore serve as an operational draft scaffold for rapid update rather than as a static one-off conversion artifact.</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="sec-acknowledgements" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Acknowledgements</h1>
+<p>Primary source materials for this bridged report were prepared by the EBS pollock assessment team, including Jim Ianelli, Carey McGilliard, and Sophia Wassermann.</p>
+<p>This document was produced using the R package asar <span class="citation" data-cites="asar_2025">(<a href="#ref-asar_2025" role="doc-biblioref">Schiano et al. 2025</a>)</span>, which is free to use and publicly available on <a href="https://github.com/nmfs-ost/asar">GitHub</a>.</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="sec-refs" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-asar_2025" class="csl-entry" role="listitem">
+Schiano, S., Breitbart, S., and Saul, S. 2025. Asar: Build NOAA stock assessment report. Available from <a href="https://github.com/nmfs-ost/asar">https://github.com/nmfs-ost/asar</a>.
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="sec-tables" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Tables</h1>
+<div class="landscape">
+<div class="cell" data-warnings="false">
+<div id="tbl-reference_points" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-warnings="false">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-reference_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Reference-point summary from ADMB output for year 2024.
+</figcaption>
+<div aria-describedby="tbl-reference_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-f274f452{}.cl-f2691114{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-f273300e{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f2733acc{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2733acd{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2733ad6{width:0.811in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2733ad7{width:0.761in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2733ad8{width:0.794in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2733ae0{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2733ae1{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2733ae2{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2733ae3{width:0.811in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2733aea{width:0.761in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2733aeb{width:0.794in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f2733aec{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-f274f452"><thead><tr style="overflow-wrap:break-word;"><th class="cl-f2733acc"><p class="cl-f273300e"><span class="cl-f2691114">Year</span></p></th><th class="cl-f2733acd"><p class="cl-f273300e"><span class="cl-f2691114">SSB</span></p></th><th class="cl-f2733acd"><p class="cl-f273300e"><span class="cl-f2691114">Bmsy</span></p></th><th class="cl-f2733ad6"><p class="cl-f273300e"><span class="cl-f2691114">B/Bmsy</span></p></th><th class="cl-f2733ad7"><p class="cl-f273300e"><span class="cl-f2691114">meanF</span></p></th><th class="cl-f2733acc"><p class="cl-f273300e"><span class="cl-f2691114">Fmsy</span></p></th><th class="cl-f2733ad8"><p class="cl-f273300e"><span class="cl-f2691114">F/Fmsy</span></p></th><th class="cl-f2733ae0"><p class="cl-f273300e"><span class="cl-f2691114">F35</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-f2733ae1"><p class="cl-f273300e"><span class="cl-f2691114">2,024</span></p></td><td class="cl-f2733ae2"><p class="cl-f273300e"><span class="cl-f2691114">3,389.48</span></p></td><td class="cl-f2733ae2"><p class="cl-f273300e"><span class="cl-f2691114">2,400.99</span></p></td><td class="cl-f2733ae3"><p class="cl-f273300e"><span class="cl-f2691114">1.412</span></p></td><td class="cl-f2733aea"><p class="cl-f273300e"><span class="cl-f2691114">0.1987</span></p></td><td class="cl-f2733ae1"><p class="cl-f273300e"><span class="cl-f2691114">0.499</span></p></td><td class="cl-f2733aeb"><p class="cl-f273300e"><span class="cl-f2691114">0.398</span></p></td><td class="cl-f2733aec"><p class="cl-f273300e"><span class="cl-f2691114">0.4406</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-warnings="false">
+<div id="tbl-terminal_status" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-warnings="false">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-terminal_status-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: Terminal year (2024) SSB and recruitment by model.
+</figcaption>
+<div aria-describedby="tbl-terminal_status-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-f27a4a2e{}.cl-f277a602{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-f278ec9c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f278eca6{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f278f7f0{width:1.44in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f278f7f1{width:0.965in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f278f7f2{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f278f7fa{width:1.44in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f278f7fb{width:0.965in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f278f7fc{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f278f7fd{width:1.44in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f278f804{width:0.965in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f278f805{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f278f806{width:1.44in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f278f807{width:0.965in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f278f80e{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f278f80f{width:1.44in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f278f810{width:0.965in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f278f811{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-f27a4a2e"><thead><tr style="overflow-wrap:break-word;"><th class="cl-f278f7f0"><p class="cl-f278ec9c"><span class="cl-f277a602">Model</span></p></th><th class="cl-f278f7f1"><p class="cl-f278eca6"><span class="cl-f277a602">Recruits</span></p></th><th class="cl-f278f7f2"><p class="cl-f278eca6"><span class="cl-f277a602">SSB</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-f278f7fa"><p class="cl-f278ec9c"><span class="cl-f277a602">CEA, FE </span></p></td><td class="cl-f278f7fb"><p class="cl-f278eca6"><span class="cl-f277a602">51,371.32</span></p></td><td class="cl-f278f7fc"><p class="cl-f278eca6"><span class="cl-f277a602">3,208.31</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f278f7fa"><p class="cl-f278ec9c"><span class="cl-f277a602">CEA, RE</span></p></td><td class="cl-f278f7fb"><p class="cl-f278eca6"><span class="cl-f277a602">44,946.26</span></p></td><td class="cl-f278f7fc"><p class="cl-f278eca6"><span class="cl-f277a602">3,138.32</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f278f7fd"><p class="cl-f278ec9c"><span class="cl-f277a602">Pollock_model</span></p></td><td class="cl-f278f804"><p class="cl-f278eca6"><span class="cl-f277a602">18,286.00</span></p></td><td class="cl-f278f805"><p class="cl-f278eca6"><span class="cl-f277a602">3,389.48</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f278f806"><p class="cl-f278ec9c"><span class="cl-f277a602">SAM</span></p></td><td class="cl-f278f807"><p class="cl-f278eca6"><span class="cl-f277a602">20,801.03</span></p></td><td class="cl-f278f80e"><p class="cl-f278eca6"><span class="cl-f277a602">2,352.90</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f278f7fd"><p class="cl-f278ec9c"><span class="cl-f277a602">SS3 Constrained</span></p></td><td class="cl-f278f804"><p class="cl-f278eca6"><span class="cl-f277a602">22,022.46</span></p></td><td class="cl-f278f805"><p class="cl-f278eca6"><span class="cl-f277a602">3,687.64</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f278f7fd"><p class="cl-f278ec9c"><span class="cl-f277a602">SS3 Flexible</span></p></td><td class="cl-f278f804"><p class="cl-f278eca6"><span class="cl-f277a602">23,672.36</span></p></td><td class="cl-f278f805"><p class="cl-f278eca6"><span class="cl-f277a602">3,203.65</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f278f7fd"><p class="cl-f278ec9c"><span class="cl-f277a602">SS3 base</span></p></td><td class="cl-f278f804"><p class="cl-f278eca6"><span class="cl-f277a602">22,173.41</span></p></td><td class="cl-f278f805"><p class="cl-f278eca6"><span class="cl-f277a602">3,308.61</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f278f80f"><p class="cl-f278ec9c"><span class="cl-f277a602">Spock</span></p></td><td class="cl-f278f810"><p class="cl-f278eca6"><span class="cl-f277a602">41,317.98</span></p></td><td class="cl-f278f811"><p class="cl-f278eca6"><span class="cl-f277a602">4,998.88</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="sec-figures" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Figures</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-model_timeseries" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Line plot comparing SSB and recruitment trajectories by model through 2024.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-model_timeseries-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="SAR_EBS_Walleye_pollock_skeleton_files/figure-html/fig-model_timeseries-1.png" class="img-fluid figure-img" alt="Line plot comparing SSB and recruitment trajectories by model through 2024." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-model_timeseries-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Model comparison of SSB and recruitment through 2024.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div id="fig-ats_osa" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ats_osa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/ats_osa.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ats_osa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Ats Osa.
+</figcaption>
+</figure>
+</div>
+<div id="fig-avo_map_yr" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-avo_map_yr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/avo_map_yr.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-avo_map_yr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Avo Map Yr.
+</figcaption>
+</figure>
+</div>
+<div id="fig-bts_osa" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bts_osa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/bts_osa.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bts_osa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Bts Osa.
+</figcaption>
+</figure>
+</div>
+<div id="fig-consisFTN" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-consisFTN-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/consisFTN.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-consisFTN-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: ConsisFTN.
+</figcaption>
+</figure>
+</div>
+<div id="fig-consisTMA" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-consisTMA-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/consisTMA.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-consisTMA-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: ConsisTMA.
+</figcaption>
+</figure>
+</div>
+<div id="fig-DataExtent" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-DataExtent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/DataExtent.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-DataExtent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: DataExtent.
+</figcaption>
+</figure>
+</div>
+<div id="fig-DataFile" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-DataFile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/DataFile.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-DataFile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: DataFile.
+</figcaption>
+</figure>
+</div>
+<div id="fig-fish_osa" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fish_osa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/fish_osa.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fish_osa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: Fish Osa.
+</figcaption>
+</figure>
+</div>
+<div id="fig-fsh_wt_freq_week_A" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fsh_wt_freq_week_A-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/fsh_wt_freq_week_A.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fsh_wt_freq_week_A-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: Fsh Wt Freq Week A.
+</figcaption>
+</figure>
+</div>
+<div id="fig-fsh_wt_freq_week_B" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fsh_wt_freq_week_B-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/fsh_wt_freq_week_B.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fsh_wt_freq_week_B-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11: Fsh Wt Freq Week B.
+</figcaption>
+</figure>
+</div>
+<div id="fig-fsh_wt_frq_yr" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fsh_wt_frq_yr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/fsh_wt_frq_yr.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fsh_wt_frq_yr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12: Fsh Wt Frq Yr.
+</figcaption>
+</figure>
+</div>
+<div id="fig-loo_ats_index_present" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-loo_ats_index_present-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/loo_ats_index_present.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-loo_ats_index_present-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13: Loo Ats Index Present.
+</figcaption>
+</figure>
+</div>
+<div id="fig-loo_ats_index" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-loo_ats_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/loo_ats_index.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-loo_ats_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14: Loo Ats Index.
+</figcaption>
+</figure>
+</div>
+<div id="fig-loo_avo_index_present" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-loo_avo_index_present-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/loo_avo_index_present.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-loo_avo_index_present-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;15: Loo Avo Index Present.
+</figcaption>
+</figure>
+</div>
+<div id="fig-loo_avo_index" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-loo_avo_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/loo_avo_index.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-loo_avo_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16: Loo Avo Index.
+</figcaption>
+</figure>
+</div>
+<div id="fig-loo_bts_index_present" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-loo_bts_index_present-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/loo_bts_index_present.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-loo_bts_index_present-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17: Loo Bts Index Present.
+</figcaption>
+</figure>
+</div>
+<div id="fig-loo_bts_index" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-loo_bts_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/loo_bts_index.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-loo_bts_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18: Loo Bts Index.
+</figcaption>
+</figure>
+</div>
+<div id="fig-loo_recruits_present" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-loo_recruits_present-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/loo_recruits_present.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-loo_recruits_present-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19: Loo Recruits Present.
+</figcaption>
+</figure>
+</div>
+<div id="fig-loo_recruits" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-loo_recruits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/loo_recruits.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-loo_recruits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20: Loo Recruits.
+</figcaption>
+</figure>
+</div>
+<div id="fig-loo_rel_ssb_present" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-loo_rel_ssb_present-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/loo_rel_ssb_present.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-loo_rel_ssb_present-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;21: Loo Rel Ssb Present.
+</figcaption>
+</figure>
+</div>
+<div id="fig-loo_rel_ssb" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-loo_rel_ssb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/loo_rel_ssb.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-loo_rel_ssb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22: Loo Rel Ssb.
+</figcaption>
+</figure>
+</div>
+<div id="fig-loo_ssb_present" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-loo_ssb_present-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/loo_ssb_present.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-loo_ssb_present-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;23: Loo Ssb Present.
+</figcaption>
+</figure>
+</div>
+<div id="fig-loo_ssb" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-loo_ssb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/loo_ssb.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-loo_ssb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;24: Loo Ssb.
+</figcaption>
+</figure>
+</div>
+<div id="fig-mcmc_slow" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mcmc_slow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/mcmc_slow.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mcmc_slow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;25: Mcmc Slow.
+</figcaption>
+</figure>
+</div>
+<div id="fig-Mmat_ats_index" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Mmat_ats_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/Mmat_ats_index.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Mmat_ats_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;26: Mmat Ats Index.
+</figcaption>
+</figure>
+</div>
+<div id="fig-Mmat_avo_index" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Mmat_avo_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/Mmat_avo_index.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Mmat_avo_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27: Mmat Avo Index.
+</figcaption>
+</figure>
+</div>
+<div id="fig-Mmat_bts_index" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Mmat_bts_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/Mmat_bts_index.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Mmat_bts_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;28: Mmat Bts Index.
+</figcaption>
+</figure>
+</div>
+<div id="fig-Mmat_recruits" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Mmat_recruits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/Mmat_recruits.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Mmat_recruits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;29: Mmat Recruits.
+</figcaption>
+</figure>
+</div>
+<div id="fig-Mmat_rel_ssb" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Mmat_rel_ssb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/Mmat_rel_ssb.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Mmat_rel_ssb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;30: Mmat Rel Ssb.
+</figcaption>
+</figure>
+</div>
+<div id="fig-Mmat_ssb" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Mmat_ssb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/Mmat_ssb.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Mmat_ssb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;31: Mmat Ssb.
+</figcaption>
+</figure>
+</div>
+<div id="fig-mod_fit_agg_comp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mod_fit_agg_comp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/mod_fit_agg_comp.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mod_fit_agg_comp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;32: Mod Fit Agg Comp.
+</figcaption>
+</figure>
+</div>
+<div id="fig-pollock_cartoon" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pollock_cartoon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/pollock_cartoon.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pollock_cartoon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;33: Pollock Cartoon.
+</figcaption>
+</figure>
+</div>
+<div id="fig-pollock" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pollock-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/pollock.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pollock-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;34: Pollock.
+</figcaption>
+</figure>
+</div>
+<div id="fig-proportionsATS" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-proportionsATS-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/proportionsATS.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-proportionsATS-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;35: ProportionsATS.
+</figcaption>
+</figure>
+</div>
+<div id="fig-proportionsBTS" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-proportionsBTS-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/proportionsBTS.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-proportionsBTS-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;36: ProportionsBTS.
+</figcaption>
+</figure>
+</div>
+<div id="fig-proportionsFSH" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-proportionsFSH-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/proportionsFSH.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-proportionsFSH-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;37: ProportionsFSH.
+</figcaption>
+</figure>
+</div>
+<div id="fig-rec_ratio" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rec_ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/rec_ratio.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rec_ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;38: Rec Ratio.
+</figcaption>
+</figure>
+</div>
+<div id="fig-SSB_mcmc" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-SSB_mcmc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/SSB_mcmc.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-SSB_mcmc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;39: SSB Mcmc.
+</figcaption>
+</figure>
+</div>
+<div id="fig-ssb_ratio" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ssb_ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/ssb_ratio.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ssb_ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;40: Ssb Ratio.
+</figcaption>
+</figure>
+</div>
+<div id="fig-VAST_Age_Compare" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-VAST_Age_Compare-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/VAST_Age_Compare.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-VAST_Age_Compare-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;41: VAST Age Compare.
+</figcaption>
+</figure>
+</div>
+<div id="fig-Vast_index_updated" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Vast_index_updated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/Vast_index_updated.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Vast_index_updated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;42: Vast Index Updated.
+</figcaption>
+</figure>
+</div>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="sec-appendix" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Appendices</h1>
+<section id="reproducibility-notes" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="reproducibility-notes"><span class="header-section-number">10.1</span> Reproducibility Notes</h2>
+<p>This ASAR report is built from source files in:</p>
+<ul>
+<li><code>/Users/jim/_mymods/noaa-afsc/ebs_pollock</code></li>
+<li><code>/Users/jim/_mymods/pollock/asar</code></li>
+</ul>
+<p>Key input files used in this build are listed below.</p>
+<div id="tbl-bridge-input-files" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bridge-input-files-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5: Key source files used in this ASAR report build.
+</figcaption>
+<div aria-describedby="tbl-bridge-input-files-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  file                                                      exists modified_time
+  &lt;chr&gt;                                                     &lt;lgl&gt;  &lt;chr&gt;        
+1 /Users/jim/_mymods/noaa-afsc/ebs_pollock/runs/lastyr/pm.… TRUE   2025-09-05 1…
+2 /Users/jim/_mymods/noaa-afsc/ebs_pollock/runs/lastyr/pm.… TRUE   2025-09-05 1…
+3 /Users/jim/_mymods/noaa-afsc/ebs_pollock/runs/lastyr/F40… TRUE   2025-09-05 1…
+4 /Users/jim/_mymods/noaa-afsc/ebs_pollock/compares.qs      TRUE   2025-09-02 1…
+5 /Users/jim/_mymods/pollock/asar/report/std_output_admb.r… TRUE   2026-02-12 1…</code></pre>
+</div>
+</div>
+</figure>
+</div>
+</section>
+<section id="figure-and-table-packaging-notes" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="figure-and-table-packaging-notes"><span class="header-section-number">10.2</span> Figure and Table Packaging Notes</h2>
+<p>ASAR uses packaged <code>.rda</code> objects for programmatic inclusion:</p>
+<ol type="1">
+<li>Tables require <code>table</code> and <code>cap</code> fields (caption text may also be stored as <code>caption</code>).</li>
+<li>Figures require <code>figure</code>, <code>cap</code>, and (for accessibility) <code>alt_text</code>.</li>
+<li>Existing static figures can be included directly as PNG/JPG with explicit captions.</li>
+</ol>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,33 @@
+# Executive Summary {#sec-exec-sum}
+
+This document presents the 2025 Eastern Bering Sea (EBS) walleye pollock assessment in the
+ASAR framework, using the same underlying assessment outputs developed in the source EBS
+pollock project.
+
+## Assessment Model
+
+The base model remains the established ADMB implementation used in recent AFSC cycles.
+For this ASAR report, base-model outputs were standardized into the `out_new` structure from
+ADMB report products, and complementary cross-model diagnostics were retained from the 2025
+comparison workflow.
+
+## Stock Status and Benchmarks
+
+The terminal assessment year in this report is `r end_year`.
+Key terminal quantities are:
+
+- Spawning biomass (`SBend`): `r format(round(SBend, 2), big.mark = ',')`
+- Fishing mortality (`Fend`): `r round(Fend, 4)`
+- Reference fishing mortality (`Ftarg`): `r round(Ftarg, 4)`
+- Relative fishing pressure (`F/Ftarg`): `r round(F_Ftarg, 3)`
+
+Benchmark and terminal summaries are provided in @tbl-reference_points and
+@tbl-terminal_status.
+
+## Summary of 2025 Development Priorities
+
+The 2025 assessment development documents identify three primary technical priorities:
+
+1. Continued ADMB-to-RTMB bridging and validation.
+2. Expanded sensitivity evaluation of data treatment and model assumptions.
+3. Improved treatment of uncertainty associated with Russian removals and transboundary dynamics.

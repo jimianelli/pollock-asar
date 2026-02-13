@@ -1,0 +1,121 @@
+# Figures {#sec-figures}
+ 
+```{r} 
+#| label: 'set-rda-dir-figs'
+#| echo: false 
+#| warnings: false 
+#| eval: true
+figures_dir <- fs::path('/Users/jim/_mymods/pollock/asar', 'figures')
+``` 
+
+```{r} 
+#| label: 'fig-model_timeseries-setup'
+#| echo: false 
+#| warnings: false 
+#| eval: true
+# load rda
+load(file.path(figures_dir, 'model_timeseries_figure.rda'))
+
+# save rda with plot-specific name
+model_timeseries_plot_rda <- rda
+
+# remove generic rda object
+rm(rda)
+
+# save figure, caption, and alt text as separate objects
+model_timeseries_plot <- model_timeseries_plot_rda$figure
+model_timeseries_cap <- model_timeseries_plot_rda$cap
+model_timeseries_alt_text <- model_timeseries_plot_rda$alt_text
+``` 
+
+```{r} 
+#| label: 'fig-model_timeseries'
+#| echo: false 
+#| warning: false 
+#| fig-cap: !expr model_timeseries_cap 
+#| fig-alt: !expr model_timeseries_alt_text
+model_timeseries_plot
+``` 
+
+![Ats Osa.](figures/ats_osa.png){#fig-ats_osa}
+
+![Avo Map Yr.](figures/avo_map_yr.png){#fig-avo_map_yr}
+
+![Bts Osa.](figures/bts_osa.png){#fig-bts_osa}
+
+![ConsisFTN.](figures/consisFTN.png){#fig-consisFTN}
+
+![ConsisTMA.](figures/consisTMA.png){#fig-consisTMA}
+
+![DataExtent.](figures/DataExtent.png){#fig-DataExtent}
+
+![DataFile.](figures/DataFile.png){#fig-DataFile}
+
+![Fish Osa.](figures/fish_osa.png){#fig-fish_osa}
+
+![Fsh Wt Freq Week A.](figures/fsh_wt_freq_week_A.png){#fig-fsh_wt_freq_week_A}
+
+![Fsh Wt Freq Week B.](figures/fsh_wt_freq_week_B.png){#fig-fsh_wt_freq_week_B}
+
+![Fsh Wt Frq Yr.](figures/fsh_wt_frq_yr.png){#fig-fsh_wt_frq_yr}
+
+![Loo Ats Index Present.](figures/loo_ats_index_present.png){#fig-loo_ats_index_present}
+
+![Loo Ats Index.](figures/loo_ats_index.png){#fig-loo_ats_index}
+
+![Loo Avo Index Present.](figures/loo_avo_index_present.png){#fig-loo_avo_index_present}
+
+![Loo Avo Index.](figures/loo_avo_index.png){#fig-loo_avo_index}
+
+![Loo Bts Index Present.](figures/loo_bts_index_present.png){#fig-loo_bts_index_present}
+
+![Loo Bts Index.](figures/loo_bts_index.png){#fig-loo_bts_index}
+
+![Loo Recruits Present.](figures/loo_recruits_present.png){#fig-loo_recruits_present}
+
+![Loo Recruits.](figures/loo_recruits.png){#fig-loo_recruits}
+
+![Loo Rel Ssb Present.](figures/loo_rel_ssb_present.png){#fig-loo_rel_ssb_present}
+
+![Loo Rel Ssb.](figures/loo_rel_ssb.png){#fig-loo_rel_ssb}
+
+![Loo Ssb Present.](figures/loo_ssb_present.png){#fig-loo_ssb_present}
+
+![Loo Ssb.](figures/loo_ssb.png){#fig-loo_ssb}
+
+![Mcmc Slow.](figures/mcmc_slow.png){#fig-mcmc_slow}
+
+![Mmat Ats Index.](figures/Mmat_ats_index.png){#fig-Mmat_ats_index}
+
+![Mmat Avo Index.](figures/Mmat_avo_index.png){#fig-Mmat_avo_index}
+
+![Mmat Bts Index.](figures/Mmat_bts_index.png){#fig-Mmat_bts_index}
+
+![Mmat Recruits.](figures/Mmat_recruits.png){#fig-Mmat_recruits}
+
+![Mmat Rel Ssb.](figures/Mmat_rel_ssb.png){#fig-Mmat_rel_ssb}
+
+![Mmat Ssb.](figures/Mmat_ssb.png){#fig-Mmat_ssb}
+
+![Mod Fit Agg Comp.](figures/mod_fit_agg_comp.png){#fig-mod_fit_agg_comp}
+
+![Pollock Cartoon.](figures/pollock_cartoon.png){#fig-pollock_cartoon}
+
+![Pollock.](figures/pollock.png){#fig-pollock}
+
+![ProportionsATS.](figures/proportionsATS.png){#fig-proportionsATS}
+
+![ProportionsBTS.](figures/proportionsBTS.png){#fig-proportionsBTS}
+
+![ProportionsFSH.](figures/proportionsFSH.png){#fig-proportionsFSH}
+
+![Rec Ratio.](figures/rec_ratio.png){#fig-rec_ratio}
+
+![SSB Mcmc.](figures/SSB_mcmc.png){#fig-SSB_mcmc}
+
+![Ssb Ratio.](figures/ssb_ratio.png){#fig-ssb_ratio}
+
+![VAST Age Compare.](figures/VAST_Age_Compare.png){#fig-VAST_Age_Compare}
+
+![Vast Index Updated.](figures/Vast_index_updated.png){#fig-Vast_index_updated}
+

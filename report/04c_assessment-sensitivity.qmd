@@ -1,0 +1,34 @@
+## Sensitivity Analyses {#sec-assmt-sens}
+
+Sensitivity analyses retained from the 2025 assessment workflow are summarized below.
+
+### Data-Component Sensitivity
+
+Leave-one-out evaluations indicate that model behavior is most sensitive to bottom-trawl
+survey information relative to other index components. Key diagnostics include:
+
+- Relative SSB trajectories: @fig-loo_rel_ssb
+- Recruitment trajectories: @fig-loo_recruits
+- Survey-index fits: @fig-loo_bts_index, @fig-loo_ats_index, @fig-loo_avo_index
+
+### Ageing and Composition Treatment
+
+Uncertainty associated with ageing methods remains an active focus. Comparisons between TMA
+and FT-NIR products are shown in @fig-consisTMA, @fig-consisFTN,
+@fig-proportionsFSH, @fig-proportionsBTS, and @fig-proportionsATS.
+
+### Natural Mortality and Structural Assumptions
+
+Alternative mortality-related assumptions and associated effects are represented in retained
+sensitivity figures (for example @fig-Mmat_ssb and @fig-Mmat_recruits).
+
+### Platform and Formulation Comparisons
+
+The source workflow included comparisons across ADMB, RTMB, SS3, SAM, and related
+formulations to evaluate robustness of trend interpretation and identify implementation
+priorities.
+
+### Russian Removal Uncertainty
+
+Review-response materials identify Russian removals as a high-priority unresolved uncertainty.
+That priority is carried forward here and remains central to upcoming scenario development.

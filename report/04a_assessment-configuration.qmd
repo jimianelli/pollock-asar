@@ -1,0 +1,30 @@
+# Assessment {#sec-assmt-config}
+
+## Current Modeling Approach
+
+The base assessment is the operational ADMB pollock model configuration used in recent AFSC
+cycles. In parallel, 2025 technical work evaluated RTMB implementation and bridging
+performance to ensure continuity of key quantities and diagnostics.
+
+This ASAR report preserves the base-model results while standardizing delivery of tables,
+figures, and core summary quantities.
+
+## Configuration of the Base Model
+
+The standardized model-results object (`std_output_admb.rda`) is assembled from base-run ADMB
+products and supplies the report preamble quantities used throughout the document.
+
+Core report range and terminal summaries are:
+
+- Year range: `r start_year`-`r end_year`
+- Terminal spawning biomass: `r format(round(SBend, 2), big.mark = ',')`
+- Terminal fishing mortality: `r round(Fend, 4)`
+- Reference fishing mortality: `r round(Ftarg, 4)`
+
+## Bridging and Standardization
+
+Two forms of bridging are represented:
+
+1. **Model-platform bridging**: ADMB-to-RTMB consistency checks from the 2025 source work.
+2. **Reporting-framework bridging**: translation of existing model outputs into ASAR-native
+   tables and figures (see @tbl-terminal_status and @fig-model_timeseries).

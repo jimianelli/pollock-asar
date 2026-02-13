@@ -1,0 +1,32 @@
+# Introduction {#sec-intro}
+
+This report provides an ASAR-formatted assessment narrative for EBS walleye pollock,
+consolidating material prepared for the 2025 CIE review cycle and subsequent September 2025
+assessment development updates.
+
+## Stock ID
+
+The assessed stock is EBS walleye pollock (*Gadus chalcogrammus*).
+The assessment supports AFSC scientific advice and NPFMC management decision-making,
+including annual ABC/OFL determinations.
+
+## Management Context
+
+Recent assessment cycles have maintained continuity in the operational base model while
+expanding technical evaluations of uncertainty. In 2025, emphasis was placed on:
+
+1. Demonstrating reproducible alignment between ADMB and RTMB formulations.
+2. Evaluating sensitivity to data treatment (including survey influence and ageing methods).
+3. Prioritizing unresolved uncertainty related to Russian removals and stock structure assumptions.
+
+## Fishery and Survey Context
+
+The assessment integrates long-term fishery catch/composition information with fishery-
+independent survey indices, including BTS, ATS, and AVO-related data products. These
+information streams remain central to trend estimation, diagnostics, and sensitivity analysis.
+
+## Ecosystem Considerations
+
+Ecosystem and climate context are included as supporting evidence (for example,
+condition and recruitment context, and multispecies mortality exploration), but are not yet
+implemented as direct ecosystem-coupled dynamic equations in the base operating model.

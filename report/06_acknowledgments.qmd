@@ -1,0 +1,7 @@
+# Acknowledgements {#sec-acknowledgements}
+
+Primary source materials for this bridged report were prepared by the EBS pollock
+assessment team, including Jim Ianelli, Carey McGilliard, and Sophia Wassermann.
+
+This document was produced using the R package asar [@asar_2025], which is free to use and
+publicly available on [GitHub](https://github.com/nmfs-ost/asar).
