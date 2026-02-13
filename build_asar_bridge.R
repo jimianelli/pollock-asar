@@ -28,8 +28,33 @@ read_pm_par_value <- function(lines, key) {
   as.numeric(vals[1])
 }
 
-make_out_row <- function(label, estimate, uncertainty = NA_real_, year = NA_integer_, era = NA_character_) {
-  n <- max(length(estimate), length(uncertainty), length(year), length(era))
+as_numeric_clean <- function(x) {
+  y <- suppressWarnings(as.numeric(x))
+  y[!is.finite(y)] <- NA_real_
+  y
+}
+
+make_out_row <- function(
+    label,
+    estimate,
+    uncertainty = NA_real_,
+    year = NA_integer_,
+    era = NA_character_,
+    fleet = NA_character_,
+    module_name = NA_character_,
+    uncertainty_label = "stddev",
+    nsim = NA_integer_
+) {
+  n <- max(
+    length(estimate),
+    length(uncertainty),
+    length(year),
+    length(era),
+    length(fleet),
+    length(module_name),
+    length(uncertainty_label),
+    length(nsim)
+  )
   recycle <- function(x) {
     if (length(x) == n) {
       return(x)
@@ -44,18 +69,22 @@ make_out_row <- function(label, estimate, uncertainty = NA_real_, year = NA_inte
   uncertainty <- recycle(uncertainty)
   year <- recycle(year)
   era <- recycle(era)
+  fleet <- recycle(fleet)
+  module_name <- recycle(module_name)
+  uncertainty_label <- recycle(uncertainty_label)
+  nsim <- recycle(nsim)
 
   data.frame(
     label = rep(label, n),
-    estimate = as.numeric(estimate),
+    estimate = as_numeric_clean(estimate),
     year = as.integer(year),
-    fleet = NA_character_,
+    fleet = as.character(fleet),
     sex = NA_character_,
     area = NA_character_,
     growth_pattern = NA_character_,
-    uncertainty = as.numeric(uncertainty),
-    module_name = NA_character_,
-    uncertainty_label = "stddev",
+    uncertainty = as_numeric_clean(uncertainty),
+    module_name = as.character(module_name),
+    uncertainty_label = as.character(uncertainty_label),
     time = as.numeric(year),
     era = as.character(era),
     month = NA_integer_,
@@ -73,7 +102,7 @@ make_out_row <- function(label, estimate, uncertainty = NA_real_, year = NA_inte
     factor = NA_integer_,
     part = NA_integer_,
     kind = NA_character_,
-    nsim = NA_integer_,
+    nsim = as.integer(nsim),
     bin = NA_integer_,
     age_a = NA_integer_,
     length_bins = NA_character_,
@@ -95,11 +124,15 @@ build_out_new_from_admb <- function(pm_rep_path, pm_par_path, f40_rep_path) {
   recruits_se <- as.numeric(pm$R[, 3])
   fishing_mort <- as.numeric(pm$SER[, 2])
   fishing_mort_se <- as.numeric(pm$SER[, 3])
-  catch_obs <- as.numeric(pm$obs_catch)
+  catch_obs <- as_numeric_clean(pm$obs_catch)
+  catch_pred <- as_numeric_clean(pm$pred_catch)
 
   n_year <- length(years)
   if (length(catch_obs) != n_year) {
     catch_obs <- rep(NA_real_, n_year)
+  }
+  if (length(catch_pred) != n_year) {
+    catch_pred <- rep(NA_real_, n_year)
   }
 
   f40_years <- as.integer(f40$Year)
@@ -125,6 +158,7 @@ build_out_new_from_admb <- function(pm_rep_path, pm_par_path, f40_rep_path) {
     make_out_row("fishing_mortality", fishing_mort, fishing_mort_se, years, "time"),
     make_out_row("catch", catch_obs, NA_real_, years, "time"),
     make_out_row("landings_observed", catch_obs, NA_real_, years, "time"),
+    make_out_row("landings_expected", catch_pred, NA_real_, years, "time"),
     make_out_row("f_msy", as.numeric(f40$Fmsy[terminal_row])),
     make_out_row("terminal_fishing_mortality", fishing_mort[which.max(years)], fishing_mort_se[which.max(years)]),
     make_out_row("biomass_msy", as.numeric(f40$Bmsy[terminal_row])),
@@ -139,6 +173,254 @@ build_out_new_from_admb <- function(pm_rep_path, pm_par_path, f40_rep_path) {
     terminal_year = terminal_year,
     f40 = f40
   )
+}
+
+normalize_out_new <- function(out_new) {
+  out_new$estimate <- as_numeric_clean(out_new$estimate)
+  out_new$uncertainty <- as_numeric_clean(out_new$uncertainty)
+  out_new$year <- suppressWarnings(as.integer(out_new$year))
+  out_new$time <- ifelse(!is.na(out_new$year), as.numeric(out_new$year), NA_real_)
+
+  keep <- !is.na(out_new$estimate) & !is.na(out_new$label) & nzchar(out_new$label)
+  out_new <- out_new[keep, , drop = FALSE]
+
+  key_cols <- c("label", "year", "fleet", "era", "nsim", "estimate", "uncertainty", "module_name")
+  out_new <- out_new[!duplicated(out_new[key_cols]), , drop = FALSE]
+
+  ord <- order(
+    ifelse(is.na(out_new$era), "", out_new$era),
+    out_new$label,
+    ifelse(is.na(out_new$fleet), "", out_new$fleet),
+    ifelse(is.na(out_new$year), Inf, out_new$year),
+    ifelse(is.na(out_new$nsim), Inf, out_new$nsim)
+  )
+  out_new <- out_new[ord, , drop = FALSE]
+  rownames(out_new) <- NULL
+
+  out_new
+}
+
+validate_out_new <- function(out_new) {
+  required_labels <- c(
+    "fishing_mortality",
+    "f_msy",
+    "biomass",
+    "biomass_msy",
+    "spawning_biomass",
+    "catch",
+    "landings_observed",
+    "natural_mortality",
+    "beverton_holt_steepness",
+    "recruitment_unfished"
+  )
+  missing_labels <- setdiff(required_labels, unique(out_new$label))
+  if (length(missing_labels) > 0) {
+    stop("Missing required out_new labels: ", paste(missing_labels, collapse = ", "), call. = FALSE)
+  }
+
+  if (any(!is.finite(out_new$estimate))) {
+    stop("Found non-finite values in out_new$estimate after normalization.", call. = FALSE)
+  }
+
+  core_time_labels <- c("spawning_biomass", "recruitment", "fishing_mortality", "catch", "landings_observed", "biomass")
+  bad_core_time <- out_new$label %in% core_time_labels & out_new$era == "time" & is.na(out_new$year)
+  if (any(bad_core_time)) {
+    bad_labels <- unique(out_new$label[bad_core_time])
+    stop("Core time-series rows missing year for labels: ", paste(bad_labels, collapse = ", "), call. = FALSE)
+  }
+
+  message("out_new QA passed: rows=", nrow(out_new), ", labels=", length(unique(out_new$label)))
+}
+
+append_index_series <- function(out_new, pmout, year_key, obs_key, pred_key, fleet_name, sd_key = NULL) {
+  if (!all(c(year_key, obs_key, pred_key) %in% names(pmout))) {
+    return(out_new)
+  }
+
+  yrs <- as.integer(pmout[[year_key]])
+  obs <- as_numeric_clean(pmout[[obs_key]])
+  pred <- as_numeric_clean(pmout[[pred_key]])
+
+  n <- min(length(yrs), length(obs), length(pred))
+  if (is.na(n) || n <= 0) {
+    return(out_new)
+  }
+
+  yrs <- yrs[seq_len(n)]
+  obs <- obs[seq_len(n)]
+  pred <- pred[seq_len(n)]
+  sd_obs <- rep(NA_real_, n)
+  if (!is.null(sd_key) && sd_key %in% names(pmout)) {
+    sd_raw <- as_numeric_clean(pmout[[sd_key]])
+    if (length(sd_raw) >= n) {
+      sd_obs <- sd_raw[seq_len(n)]
+    }
+  }
+
+  dplyr::bind_rows(
+    out_new,
+    make_out_row("indices", obs, sd_obs, yrs, "time", fleet = fleet_name, module_name = "pmout"),
+    make_out_row("indices_expected", pred, NA_real_, yrs, "time", fleet = fleet_name, module_name = "pmout")
+  )
+}
+
+append_scenario_vector <- function(out_new, pmout, source_key, label, terminal_year) {
+  if (!(source_key %in% names(pmout))) {
+    return(out_new)
+  }
+  values <- as_numeric_clean(pmout[[source_key]])
+  if (length(values) == 0) {
+    return(out_new)
+  }
+
+  dplyr::bind_rows(
+    out_new,
+    make_out_row(
+      label = label,
+      estimate = values,
+      uncertainty = NA_real_,
+      year = rep(terminal_year, length(values)),
+      era = "scenario",
+      module_name = "pmout",
+      nsim = seq_along(values)
+    )
+  )
+}
+
+append_projection_matrix <- function(
+    out_new,
+    pmout,
+    source_key,
+    label,
+    terminal_year,
+    start_offset = 0L,
+    uncertainty_key = NULL
+) {
+  if (!(source_key %in% names(pmout))) {
+    return(out_new)
+  }
+
+  mat <- as.matrix(pmout[[source_key]])
+  if (!is.matrix(mat) || nrow(mat) == 0 || ncol(mat) == 0) {
+    return(out_new)
+  }
+
+  uncertainty_mat <- matrix(NA_real_, nrow = nrow(mat), ncol = ncol(mat))
+  if (!is.null(uncertainty_key) && uncertainty_key %in% names(pmout)) {
+    unc_raw <- as.matrix(pmout[[uncertainty_key]])
+    if (is.matrix(unc_raw) && nrow(unc_raw) > 0 && ncol(unc_raw) > 0) {
+      n_row <- min(nrow(mat), nrow(unc_raw))
+      n_col <- min(ncol(mat), ncol(unc_raw))
+      uncertainty_mat[seq_len(n_row), seq_len(n_col)] <- unc_raw[seq_len(n_row), seq_len(n_col)]
+    }
+  }
+
+  proj_years <- terminal_year + start_offset + seq_len(ncol(mat)) - 1L
+  rows <- lapply(seq_len(nrow(mat)), function(i) {
+    make_out_row(
+      label = label,
+      estimate = as_numeric_clean(mat[i, ]),
+      uncertainty = as_numeric_clean(uncertainty_mat[i, ]),
+      year = proj_years,
+      era = "projection",
+      module_name = "pmout",
+      nsim = i
+    )
+  })
+
+  dplyr::bind_rows(out_new, dplyr::bind_rows(rows))
+}
+
+append_pmout_enrichment <- function(out_new, pmout_path, terminal_year) {
+  if (is.null(pmout_path) || !nzchar(pmout_path) || !file.exists(pmout_path)) {
+    message("No pmout enrichment applied (file not found): ", pmout_path)
+    return(out_new)
+  }
+
+  pmout <- readRDS(pmout_path)
+  if (!is.list(pmout)) {
+    message("Skipping pmout enrichment because object is not a list: ", pmout_path)
+    return(out_new)
+  }
+
+  years <- integer()
+  if ("SSB" %in% names(pmout) && is.matrix(pmout$SSB) && ncol(pmout$SSB) >= 1) {
+    years <- as.integer(pmout$SSB[, 1])
+  }
+
+  if (length(years) > 0 && "age3plus" %in% names(pmout)) {
+    age3plus <- as_numeric_clean(pmout$age3plus)
+    n <- min(length(years), length(age3plus))
+    if (n > 0) {
+      age3plus_sd <- rep(NA_real_, n)
+      if ("age3plus.sd" %in% names(pmout)) {
+        sd_vals <- as_numeric_clean(pmout[["age3plus.sd"]])
+        if (length(sd_vals) >= n) {
+          age3plus_sd <- sd_vals[seq_len(n)]
+        }
+      }
+      out_new <- dplyr::bind_rows(
+        out_new,
+        make_out_row(
+          label = "biomass_age3plus",
+          estimate = age3plus[seq_len(n)],
+          uncertainty = age3plus_sd,
+          year = years[seq_len(n)],
+          era = "time",
+          module_name = "pmout"
+        )
+      )
+    }
+  }
+
+  out_new <- append_index_series(out_new, pmout, "yr_bts", "ob_bts", "eb_bts", "bts", "sd_ob_bts")
+  out_new <- append_index_series(out_new, pmout, "yr_ats", "ob_ats", "eb_ats", "ats", "sd_ob_ats")
+  out_new <- append_index_series(out_new, pmout, "yrs_avo", "obs_avo", "pred_avo", "avo", "obs_avo_std")
+  out_new <- append_index_series(out_new, pmout, "yrs_cpue", "obs_cpue", "pred_cpue", "cpue", "obs_cpue_std")
+
+  out_new <- append_scenario_vector(out_new, pmout, "Fcur_Fmsy", "status_fcur_over_fmsy", terminal_year)
+  out_new <- append_scenario_vector(out_new, pmout, "Bcur_Bmsy", "status_bcur_over_bmsy", terminal_year)
+  out_new <- append_scenario_vector(out_new, pmout, "Fcur_F35", "status_fcur_over_f35", terminal_year)
+  out_new <- append_scenario_vector(out_new, pmout, "pfcur_fmsy", "status_prob_f_above_fmsy", terminal_year)
+  out_new <- append_scenario_vector(out_new, pmout, "pbcur_bmsy", "status_prob_b_above_bmsy", terminal_year)
+  out_new <- append_scenario_vector(out_new, pmout, "pfcur_f35", "status_prob_f_above_f35", terminal_year)
+
+  # Projection matrices are scenario x year. Offsets are based on PM output conventions.
+  out_new <- append_projection_matrix(
+    out_new = out_new,
+    pmout = pmout,
+    source_key = "future_SSB",
+    label = "projection_ssb",
+    terminal_year = terminal_year,
+    start_offset = 0L,
+    uncertainty_key = "future_SSB.sd"
+  )
+  out_new <- append_projection_matrix(
+    out_new = out_new,
+    pmout = pmout,
+    source_key = "future_F",
+    label = "projection_fishing_mortality",
+    terminal_year = terminal_year,
+    start_offset = 0L
+  )
+  out_new <- append_projection_matrix(
+    out_new = out_new,
+    pmout = pmout,
+    source_key = "future_SER",
+    label = "projection_fishing_mortality_ser",
+    terminal_year = terminal_year,
+    start_offset = 1L
+  )
+  out_new <- append_projection_matrix(
+    out_new = out_new,
+    pmout = pmout,
+    source_key = "future_catch",
+    label = "projection_catch",
+    terminal_year = terminal_year,
+    start_offset = 1L
+  )
+
+  out_new
 }
 
 build_comparison_artifacts <- function(compares_path, tables_dir, figures_dir, assessment_year, f40_df) {
@@ -275,6 +557,7 @@ main <- function() {
   spp_latin <- get_opt(args, "spp-latin", "Gadus chalcogrammus")
   copy_figures <- tolower(get_opt(args, "copy-figures", "true")) %in% c("true", "1", "yes", "y")
   write_template <- tolower(get_opt(args, "write-template", "true")) %in% c("true", "1", "yes", "y")
+  pmout_rds <- get_opt(args, "pmout-rds", file.path(dirname(script_dir), "pmout24.rds"))
 
   pm_rep_path <- file.path(ebs_dir, "runs", "lastyr", "pm.rep")
   pm_par_path <- file.path(ebs_dir, "runs", "lastyr", "pm.par")
@@ -300,12 +583,17 @@ main <- function() {
   out_new <- parsed$out_new
   terminal_year <- parsed$terminal_year
   f40_df <- parsed$f40
+  out_new <- append_pmout_enrichment(out_new, pmout_rds, terminal_year)
+  out_new <- normalize_out_new(out_new)
+  validate_out_new(out_new)
+
+  message("out_new rows: ", nrow(out_new), " | labels: ", length(unique(out_new$label)))
 
   assessment_year_opt <- get_opt(args, "assessment-year", as.character(terminal_year))
   assessment_year <- as.integer(assessment_year_opt)
 
   std_output_file <- file.path(report_dir, "std_output_admb.rda")
-  save(out_new, file = std_output_file)
+  save(out_new, file = std_output_file, compress = "xz")
 
   build_comparison_artifacts(
     compares_path = compares_path,

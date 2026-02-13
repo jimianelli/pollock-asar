@@ -11,7 +11,8 @@ into ASAR report structure using:
 
 The workflow avoids direct SS3 `Report.sso` conversion and instead builds an ASAR-compatible
 `out_new` object from ADMB outputs (`pm.rep`, `pm.par`, `F40_t.rep`) plus model-comparison
-tables/figures from `compares.qs`.
+tables/figures from `compares.qs`. If available, a `pmout` RDS file is also used to enrich
+`out_new` with survey indices, projection series, scenario metrics, and expected landings.
 
 ## Run
 
@@ -34,6 +35,7 @@ Rscript build_asar_bridge.R
 ```bash
 Rscript build_asar_bridge.R \
   --ebs-dir=/Users/jim/_mymods/noaa-afsc/ebs_pollock \
+  --pmout-rds=/Users/jim/_mymods/pollock/pmout24.rds \
   --assessment-year=2024 \
   --report-year=2025 \
   --office=AFSC \
