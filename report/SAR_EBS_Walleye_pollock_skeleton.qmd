@@ -92,6 +92,12 @@ R0 # recruitment
 
 ``` 
 
+::: {.content-visible when-format="html"}
+<div style="text-align: center; margin: 1.25rem 0 1.75rem 0;">
+  <img src="support_files/Walleye_pollock.png" alt="Illustration of walleye pollock." style="max-width: 460px; width: 62%; height: auto;">
+</div>
+:::
+
 {{< pagebreak >}}
 
 ## Disclaimer {.unnumbered .unlisted}

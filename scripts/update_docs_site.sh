@@ -8,6 +8,7 @@ REPORT_HTML_REPORT="$ROOT/report/Walleye_pollock_SAR_2025.html"
 REPORT_QMD="$ROOT/report/SAR_EBS_Walleye_pollock_skeleton.qmd"
 REPORT_PDF="$ROOT/Walleye_pollock_SAR_2025.pdf"
 REPORT_ASSETS="$ROOT/report/SAR_EBS_Walleye_pollock_skeleton_files"
+REPORT_SUPPORT="$ROOT/report/support_files"
 FIGURES_DIR="$ROOT/figures"
 DOCS_DIR="$ROOT/docs"
 ASSESS_DIR="$DOCS_DIR/assessment"
@@ -49,6 +50,9 @@ if [[ -f "$REPORT_PDF" ]]; then
   cp "$REPORT_PDF" "$ASSESS_DIR/Walleye_pollock_SAR_2025.pdf"
 fi
 cp -R "$REPORT_ASSETS" "$ASSESS_DIR/"
+if [[ -d "$REPORT_SUPPORT" ]]; then
+  cp -R "$REPORT_SUPPORT" "$ASSESS_DIR/"
+fi
 cp -R "$FIGURES_DIR" "$ASSESS_DIR/"
 
 # Embedded assessment only needs static image files in assessment/figures.
