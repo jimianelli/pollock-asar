@@ -47,3 +47,14 @@ Rscript build_asar_bridge.R \
 See:
 
 - `/Users/jim/_mymods/pollock/asar/MODEL_ADOPTION_GUIDE.md`
+
+## GitHub Pages
+
+This repo publishes a static site from `/docs` (GitHub Pages).
+
+To refresh the published site after rendering:
+
+```bash
+quarto render /Users/jim/_mymods/pollock/asar/report/SAR_EBS_Walleye_pollock_skeleton.qmd --to html
+/Users/jim/_mymods/pollock/asar/scripts/update_docs_site.sh
+```
