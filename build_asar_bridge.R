@@ -274,6 +274,7 @@ main <- function() {
   species <- get_opt(args, "species", "Walleye pollock")
   spp_latin <- get_opt(args, "spp-latin", "Gadus chalcogrammus")
   copy_figures <- tolower(get_opt(args, "copy-figures", "true")) %in% c("true", "1", "yes", "y")
+  write_template <- tolower(get_opt(args, "write-template", "true")) %in% c("true", "1", "yes", "y")
 
   pm_rep_path <- file.path(ebs_dir, "runs", "lastyr", "pm.rep")
   pm_par_path <- file.path(ebs_dir, "runs", "lastyr", "pm.par")
@@ -321,28 +322,32 @@ main <- function() {
     )
   }
 
-  old_wd <- getwd()
-  on.exit(setwd(old_wd), add = TRUE)
-  setwd(report_dir)
+  if (write_template) {
+    old_wd <- getwd()
+    on.exit(setwd(old_wd), add = TRUE)
+    setwd(report_dir)
 
-  asar::create_template(
-    format = "html",
-    office = office,
-    region = region,
-    species = species,
-    spp_latin = spp_latin,
-    year = report_year,
-    file_dir = report_dir,
-    model_results = "std_output_admb.rda",
-    tables_dir = script_dir,
-    figures_dir = script_dir,
-    new_template = TRUE
-  )
+    asar::create_template(
+      format = "html",
+      office = office,
+      region = region,
+      species = species,
+      spp_latin = spp_latin,
+      year = report_year,
+      file_dir = report_dir,
+      model_results = "std_output_admb.rda",
+      tables_dir = script_dir,
+      figures_dir = script_dir,
+      new_template = TRUE
+    )
 
-  csl_src <- system.file("resources", "cjfas.csl", package = "asar")
-  csl_dst <- file.path(report_dir, "support_files", "cjfas.csl")
-  if (file.exists(csl_src)) {
-    file.copy(csl_src, csl_dst, overwrite = TRUE)
+    csl_src <- system.file("resources", "cjfas.csl", package = "asar")
+    csl_dst <- file.path(report_dir, "support_files", "cjfas.csl")
+    if (file.exists(csl_src)) {
+      file.copy(csl_src, csl_dst, overwrite = TRUE)
+    }
+  } else {
+    message("Skipping ASAR template regeneration (--write-template=false).")
   }
 
   message("ASAR bridge build complete.")

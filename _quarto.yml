@@ -3,6 +3,7 @@ project:
   output-dir: docs
   render:
     - index.qmd
+    - assessment_asar_native.qmd
     - assessment_pdf.qmd
     - MODEL_ADOPTION_GUIDE.qmd
 
@@ -15,6 +16,8 @@ website:
     contents:
       - href: index.qmd
         text: "Assessment Report"
+      - href: assessment_asar_native.qmd
+        text: "Assessment Report (ASAR-native Draft)"
       - href: assessment_pdf.qmd
         text: "Assessment PDF"
       - href: MODEL_ADOPTION_GUIDE.qmd

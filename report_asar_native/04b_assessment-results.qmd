@@ -1,0 +1,51 @@
+## Modeling Results {#sec-assmt-results}
+
+### Parameter Estimates
+
+Key base-model quantities are summarized in @tbl-reference_points.
+Important values used in this report include:
+
+- Steepness: `r round(h, 3)`
+- Unfished recruitment proxy (`R0`): `r format(round(R0, 0), big.mark = ',')`
+- Mean natural mortality: `r round(M, 3)`
+
+### Time Series
+
+Time-series trajectories for spawning biomass and recruitment across model runs are shown in
+@fig-model_timeseries. Terminal-year cross-model values are summarized in @tbl-terminal_status.
+
+### Model Fits
+
+Model-fit diagnostics imported from the 2025 source workflow are retained in the figures
+section, including composition and index fit summaries (for example @fig-mod_fit_agg_comp,
+@fig-bts_osa (Bottom trawl survey, BTS), @fig-ats_osa (Acoustic-trawl survey, ATS), and
+@fig-avo_map_yr (Acoustic vessels of opportunity, AVO).
+
+### Model Diagnostics
+
+```{r}
+#| label: tbl-admb-header
+#| tbl-cap: "Selected ADMB optimization diagnostics from `pm.par` header metadata."
+#| echo: false
+#| warning: false
+#| message: false
+if (!exists("ebs_dir") || is.null(ebs_dir) || !nzchar(ebs_dir)) {
+  ebs_dir <- Sys.getenv("ASAR_EBS_DIR", unset = "/Users/jim/_mymods/noaa-afsc/ebs_pollock")
+}
+par_file <- file.path(ebs_dir, "runs", "lastyr", "pm.par")
+if (file.exists(par_file)) {
+  ln1 <- readLines(par_file, n = 1, warn = FALSE)
+  npar <- as.numeric(sub(".*Number of parameters = ([0-9]+).*", "\\1", ln1))
+  obj <- as.numeric(sub(".*Objective function value = ([0-9.eE+-]+).*", "\\1", ln1))
+  grad <- as.numeric(sub(".*Maximum gradient component = ([0-9.eE+-]+).*", "\\1", ln1))
+  dplyr::tibble(
+    metric = c("Number of parameters", "Objective function", "Maximum gradient"),
+    value = c(npar, obj, grad)
+  )
+} else {
+  dplyr::tibble(
+    metric = "ADMB header",
+    value = "pm.par file not found"
+  )
+}
+```

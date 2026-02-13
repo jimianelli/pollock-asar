@@ -1,0 +1,123 @@
+# Figures {#sec-figures}
+ 
+```{r} 
+#| label: 'set-rda-dir-figs'
+#| echo: false 
+#| warnings: false 
+#| eval: true
+if (!exists("figures_dir") || is.null(figures_dir) || !nzchar(figures_dir)) {
+  asar_root <- normalizePath(file.path(getwd(), ".."), mustWork = FALSE)
+  figures_dir <- file.path(asar_root, "figures")
+}
+``` 
+
+```{r} 
+#| label: 'fig-model_timeseries-setup'
+#| echo: false 
+#| warnings: false 
+#| eval: true
+# load rda
+load(file.path(figures_dir, 'model_timeseries_figure.rda'))
+
+# save rda with plot-specific name
+model_timeseries_plot_rda <- rda
+
+# remove generic rda object
+rm(rda)
+
+# save figure, caption, and alt text as separate objects
+model_timeseries_plot <- model_timeseries_plot_rda$figure
+model_timeseries_cap <- model_timeseries_plot_rda$cap
+model_timeseries_alt_text <- model_timeseries_plot_rda$alt_text
+``` 
+
+```{r} 
+#| label: 'fig-model_timeseries'
+#| echo: false 
+#| warning: false 
+#| fig-cap: !expr model_timeseries_cap 
+#| fig-alt: !expr model_timeseries_alt_text
+model_timeseries_plot
+``` 
+
+![ATS (Acoustic-trawl survey) observed-vs-expected fit.](figures/ats_osa.png){#fig-ats_osa}
+
+![AVO (Acoustic vessels of opportunity) spatial coverage by year.](figures/avo_map_yr.png){#fig-avo_map_yr}
+
+![BTS (Bottom trawl survey) observed-vs-expected fit.](figures/bts_osa.png){#fig-bts_osa}
+
+![Consistency diagnostic for fishing mortality and total numbers.](figures/consisFTN.png){#fig-consisFTN}
+
+![Consistency diagnostic for total mortality-at-age.](figures/consisTMA.png){#fig-consisTMA}
+
+![Temporal and spatial extent of input data.](figures/DataExtent.png){#fig-DataExtent}
+
+![Data-file composition and structure summary.](figures/DataFile.png){#fig-DataFile}
+
+![Fishery observed-vs-expected fit diagnostic.](figures/fish_osa.png){#fig-fish_osa}
+
+![Fishery weight-frequency by week (stratum A).](figures/fsh_wt_freq_week_A.png){#fig-fsh_wt_freq_week_A}
+
+![Fishery weight-frequency by week (stratum B).](figures/fsh_wt_freq_week_B.png){#fig-fsh_wt_freq_week_B}
+
+![Fishery weight-frequency by year.](figures/fsh_wt_frq_yr.png){#fig-fsh_wt_frq_yr}
+
+![Leave-one-out ATS index (present-year subset).](figures/loo_ats_index_present.png){#fig-loo_ats_index_present}
+
+![Leave-one-out ATS index across all years.](figures/loo_ats_index.png){#fig-loo_ats_index}
+
+![Leave-one-out AVO index (present-year subset).](figures/loo_avo_index_present.png){#fig-loo_avo_index_present}
+
+![Leave-one-out AVO index across all years.](figures/loo_avo_index.png){#fig-loo_avo_index}
+
+![Leave-one-out BTS index (present-year subset).](figures/loo_bts_index_present.png){#fig-loo_bts_index_present}
+
+![Leave-one-out BTS index across all years.](figures/loo_bts_index.png){#fig-loo_bts_index}
+
+![Leave-one-out recruitment estimates (present-year subset).](figures/loo_recruits_present.png){#fig-loo_recruits_present}
+
+![Leave-one-out recruitment estimates across all years.](figures/loo_recruits.png){#fig-loo_recruits}
+
+![Leave-one-out relative spawning biomass (present-year subset).](figures/loo_rel_ssb_present.png){#fig-loo_rel_ssb_present}
+
+![Leave-one-out relative spawning biomass across all years.](figures/loo_rel_ssb.png){#fig-loo_rel_ssb}
+
+![Leave-one-out spawning biomass estimates (present-year subset).](figures/loo_ssb_present.png){#fig-loo_ssb_present}
+
+![Leave-one-out spawning biomass estimates across all years.](figures/loo_ssb.png){#fig-loo_ssb}
+
+![MCMC slow-mixing diagnostic.](figures/mcmc_slow.png){#fig-mcmc_slow}
+
+![M-at-age sensitivity: ATS index response.](figures/Mmat_ats_index.png){#fig-Mmat_ats_index}
+
+![M-at-age sensitivity: AVO index response.](figures/Mmat_avo_index.png){#fig-Mmat_avo_index}
+
+![M-at-age sensitivity: BTS index response.](figures/Mmat_bts_index.png){#fig-Mmat_bts_index}
+
+![M-at-age sensitivity: recruitment response.](figures/Mmat_recruits.png){#fig-Mmat_recruits}
+
+![M-at-age sensitivity: relative spawning biomass response.](figures/Mmat_rel_ssb.png){#fig-Mmat_rel_ssb}
+
+![M-at-age sensitivity: spawning biomass response.](figures/Mmat_ssb.png){#fig-Mmat_ssb}
+
+![Aggregated composition fit diagnostics.](figures/mod_fit_agg_comp.png){#fig-mod_fit_agg_comp}
+
+![Walleye pollock illustration (cartoon).](figures/pollock_cartoon.png){#fig-pollock_cartoon}
+
+![Walleye pollock image used in report branding.](figures/pollock.png){#fig-pollock}
+
+![Age-composition proportions for ATS.](figures/proportionsATS.png){#fig-proportionsATS}
+
+![Age-composition proportions for BTS.](figures/proportionsBTS.png){#fig-proportionsBTS}
+
+![Age-composition proportions for fishery observations.](figures/proportionsFSH.png){#fig-proportionsFSH}
+
+![Recruitment ratio diagnostic through time.](figures/rec_ratio.png){#fig-rec_ratio}
+
+![Spawning biomass posterior diagnostic from MCMC.](figures/SSB_mcmc.png){#fig-SSB_mcmc}
+
+![Spawning biomass ratio diagnostic through time.](figures/ssb_ratio.png){#fig-ssb_ratio}
+
+![VAST versus age-based comparison diagnostic.](figures/VAST_Age_Compare.png){#fig-VAST_Age_Compare}
+
+![Updated VAST index time series.](figures/Vast_index_updated.png){#fig-Vast_index_updated}

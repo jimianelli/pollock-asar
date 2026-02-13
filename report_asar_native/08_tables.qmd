@@ -1,0 +1,65 @@
+# Tables {#sec-tables}
+ 
+```{r} 
+#| label: 'set-rda-dir-tbls'
+#| echo: false 
+#| warning: false 
+#| include: false
+library(flextable)
+if (!exists("tables_dir") || is.null(tables_dir) || !nzchar(tables_dir)) {
+  asar_root <- normalizePath(file.path(getwd(), ".."), mustWork = FALSE)
+  tables_dir <- file.path(asar_root, "tables")
+}
+``` 
+
+```{r} 
+#| label: 'tab-reference_points-setup'
+#| echo: false 
+#| warnings: false 
+#| eval: true
+# load rda
+load(file.path(tables_dir, 'reference_points_table.rda'))
+
+# save rda with table-specific name
+reference_points_table_rda <- rda
+
+# save table and caption as separate objects
+reference_points_table <- reference_points_table_rda$table
+reference_points_cap <- reference_points_table_rda$cap
+``` 
+
+::: {.landscape}
+
+```{r} 
+#| label: 'tbl-reference_points'
+#| echo: false 
+#| warnings: false 
+#| tbl-cap: !expr reference_points_cap
+reference_points_table |>
+flextable::fit_to_width(max_width = 8)
+``` 
+
+:::
+```{r} 
+#| label: 'tab-terminal_status-setup'
+#| echo: false 
+#| warnings: false 
+#| eval: true
+# load rda
+load(file.path(tables_dir, 'terminal_status_table.rda'))
+
+# save rda with table-specific name
+terminal_status_table_rda <- rda
+
+# save table and caption as separate objects
+terminal_status_table <- terminal_status_table_rda$table
+terminal_status_cap <- terminal_status_table_rda$cap
+``` 
+
+```{r} 
+#| label: 'tbl-terminal_status'
+#| echo: false 
+#| warnings: false 
+#| tbl-cap: !expr terminal_status_cap
+terminal_status_table
+``` 

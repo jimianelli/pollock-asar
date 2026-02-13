@@ -1,0 +1,36 @@
+## Projections {#sec-assmt-proj}
+
+Near-term projection rows are available in the benchmark file and are extracted below for
+years greater than the terminal assessment year.
+
+```{r}
+#| label: tbl-near-term-projections
+#| tbl-cap: "Near-term projection rows from `F40_t.rep` (years greater than terminal year)."
+#| echo: false
+#| warning: false
+#| message: false
+if (!exists("ebs_dir") || is.null(ebs_dir) || !nzchar(ebs_dir)) {
+  ebs_dir <- Sys.getenv("ASAR_EBS_DIR", unset = "/Users/jim/_mymods/noaa-afsc/ebs_pollock")
+}
+f40_file <- file.path(ebs_dir, "runs", "lastyr", "F40_t.rep")
+if (file.exists(f40_file)) {
+  f40 <- suppressMessages(readr::read_table(f40_file, show_col_types = FALSE, progress = FALSE))
+  f40 |>
+    dplyr::mutate(Year = as.integer(Year)) |>
+    dplyr::filter(Year > end_year) |>
+    dplyr::select(Year, SSB, `B/Bmsy`, meanF, Fmsy, `F/Fmsy`, F35) |>
+    dplyr::mutate(
+      SSB = round(as.numeric(SSB), 2),
+      `B/Bmsy` = round(as.numeric(`B/Bmsy`), 3),
+      meanF = round(as.numeric(meanF), 4),
+      Fmsy = round(as.numeric(Fmsy), 4),
+      `F/Fmsy` = round(as.numeric(`F/Fmsy`), 3),
+      F35 = round(as.numeric(F35), 4)
+    )
+} else {
+  dplyr::tibble(Note = "Projection file not found.")
+}
+```
+
+Projection interpretation should follow the same assumptions and caveats described in the
+source 2025 assessment workflow.

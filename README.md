@@ -2,7 +2,8 @@
 
 This folder bridges assessment outputs from:
 
-- `/Users/jim/_mymods/afsc-assessments/ebs_pollock_safe`
+- `/Users/jim/_mymods/afsc-assessments/ebs_pollock` (preferred)
+- `/Users/jim/_mymods/afsc-assessments/ebs_pollock_safe` (fallback)
 
 into ASAR report structure using:
 
@@ -39,7 +40,8 @@ Rscript build_asar_bridge.R \
   --region='Eastern Bering Sea' \
   --species='Walleye pollock' \
   --spp-latin='Gadus chalcogrammus' \
-  --copy-figures=true
+  --copy-figures=true \
+  --write-template=true
 ```
 
 ## Adopting new models
@@ -54,8 +56,9 @@ This repo publishes a static site from `/docs` (GitHub Pages).
 The left sidebar includes:
 
 1. `Assessment Report` (embedded assessment HTML)
-2. `Assessment PDF` (embedded assessment PDF)
-3. `Model Adoption Guide` (rendered from `MODEL_ADOPTION_GUIDE.qmd`)
+2. `Assessment Report (ASAR-native Draft)` (parallel draft built from ASAR chapters)
+3. `Assessment PDF` (embedded assessment PDF)
+4. `Model Adoption Guide` (rendered from `MODEL_ADOPTION_GUIDE.qmd`)
 
 To refresh the published site after rendering:
 
@@ -65,4 +68,26 @@ To refresh the published site after rendering:
 
 `update_docs_site.sh` now imports assessment text/content from:
 
-- `/Users/jim/_mymods/afsc-assessments/ebs_pollock_safe/ebswp.qmd`
+- `/Users/jim/_mymods/afsc-assessments/ebs_pollock/ebswp.qmd` when available
+- otherwise `/Users/jim/_mymods/afsc-assessments/ebs_pollock_safe/ebswp.qmd`
+
+You can override the source directory explicitly:
+
+```bash
+ASAR_SOURCE_DIR=/path/to/assessment-repo /Users/jim/_mymods/pollock/asar/scripts/update_docs_site.sh
+```
+
+To refresh the second, ASAR-native draft document without touching the current frozen-source flow:
+
+```bash
+/Users/jim/_mymods/pollock/asar/scripts/update_docs_site_asar_native.sh
+```
+
+This renders from `/Users/jim/_mymods/pollock/asar/report_asar_native/` and publishes to
+`/Users/jim/_mymods/pollock/asar/docs/assessment_asar/`.
+
+Override the model source directory used for ADMB/bridge inputs:
+
+```bash
+ASAR_EBS_DIR=/path/to/ebs_pollock /Users/jim/_mymods/pollock/asar/scripts/update_docs_site_asar_native.sh
+```

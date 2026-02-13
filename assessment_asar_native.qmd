@@ -1,0 +1,17 @@
+---
+title: "Assessment Report (ASAR-native Draft)"
+---
+
+This page tracks the in-progress ASAR-native rebuild of the pollock assessment.
+
+The rendered draft is embedded below.
+
+<iframe
+  src="assessment_asar/Walleye_pollock_SAR_2025_asar_native.html"
+  title="EBS Walleye Pollock ASAR-native Assessment Draft"
+  style="width: 100%; min-height: 88vh; border: 1px solid #d9d9d9; border-radius: 6px;"
+  loading="lazy">
+</iframe>
+
+If the embedded view does not load, open the draft directly:
+[ASAR-native HTML](assessment_asar/Walleye_pollock_SAR_2025_asar_native.html)

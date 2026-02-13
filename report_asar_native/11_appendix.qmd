@@ -1,0 +1,53 @@
+\appendix
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+# Appendices {#sec-appendix}
+
+## Reproducibility Notes
+
+This ASAR report is built from source files in:
+
+- `r ebs_dir`
+- `r asar_root`
+
+Key input files used in this build are listed below.
+
+```{r}
+#| label: tbl-bridge-input-files
+#| tbl-cap: "Key source files used in this ASAR report build."
+#| echo: false
+#| warning: false
+#| message: false
+if (!exists("ebs_dir") || is.null(ebs_dir) || !nzchar(ebs_dir)) {
+  ebs_dir <- Sys.getenv("ASAR_EBS_DIR", unset = "/Users/jim/_mymods/noaa-afsc/ebs_pollock")
+}
+if (!exists("asar_root") || is.null(asar_root) || !nzchar(asar_root)) {
+  asar_root <- normalizePath(file.path(getwd(), ".."), mustWork = FALSE)
+}
+input_files <- c(
+  file.path(ebs_dir, "runs", "lastyr", "pm.rep"),
+  file.path(ebs_dir, "runs", "lastyr", "pm.par"),
+  file.path(ebs_dir, "runs", "lastyr", "F40_t.rep"),
+  file.path(ebs_dir, "compares.qs"),
+  file.path(getwd(), "std_output_admb.rda")
+)
+
+dplyr::tibble(
+  file = input_files,
+  exists = file.exists(input_files),
+  modified_time = ifelse(
+    file.exists(input_files),
+    as.character(file.info(input_files)$mtime),
+    NA_character_
+  )
+)
+```
+
+## Figure and Table Packaging Notes
+
+ASAR uses packaged `.rda` objects for programmatic inclusion:
+
+1. Tables require `table` and `cap` fields (caption text may also be stored as `caption`).
+2. Figures require `figure`, `cap`, and (for accessibility) `alt_text`.
+3. Existing static figures can be included directly as PNG/JPG with explicit captions.
