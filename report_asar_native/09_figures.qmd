@@ -102,10 +102,6 @@ model_timeseries_plot
 
 ![Aggregated composition fit diagnostics.](figures/mod_fit_agg_comp.png){#fig-mod_fit_agg_comp}
 
-![Walleye pollock illustration (cartoon).](figures/pollock_cartoon.png){#fig-pollock_cartoon}
-
-![Walleye pollock image used in report branding.](figures/pollock.png){#fig-pollock}
-
 ![Age-composition proportions for ATS.](figures/proportionsATS.png){#fig-proportionsATS}
 
 ![Age-composition proportions for BTS.](figures/proportionsBTS.png){#fig-proportionsBTS}

@@ -4,9 +4,12 @@
 
 ## Assessment Model
 
-<!-- Include a short statement describing the assessment model used for the current management cycle and any data updates. -->
+This assessment uses the existing EBS pollock age-structured model workflow and ports core outputs into an ASAR-native document. The model integrates catch, fishery age composition, and fishery-independent indices to estimate population trends and management quantities. For this update, data streams were extended through `r end_year`, with retained emphasis on the base run represented in `pmout24.rds`.
+
+Relative to prior SAFE-style reporting, the main change here is format and reproducibility: the ASAR build reads converted model output (`out_new`) and packaged table/figure objects, while preserving the same biological and management interpretation.
 
 ## Reference Points, Stock Status, and Projections
 
-<!-- Short summary of reference points, stock status, and projections. When using `asar`, tables of reference points and projections will be automatically generated. -->
+Reference points and terminal status metrics are summarized in @tbl-reference_points and @tbl-terminal_status. In the terminal year, estimated spawning biomass is `r round(SBend[1], 1)` compared with `r round(Bmsy[1], 1)` for the MSY benchmark (`r round(SBend[1] / Bmsy[1], 2)` times Bmsy), and terminal fishing mortality is `r round(Fend[1], 3)` relative to `r round(Ftarg[1], 3)` (`r round(F_Ftarg[1], 2)` times target F).
 
+Near-term projection rows extracted from the benchmark file are reported in @tbl-near-term-projections and indicate status should be interpreted using the same assumptions as the source assessment workflow.

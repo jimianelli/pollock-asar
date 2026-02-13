@@ -1,12 +1,11 @@
 # Introduction {#sec-intro}
 
-Testing adding in an introduction for `r params$species`. There is currently no read of parameters for child documents.
-
 <!-- The intent is to keep this section to 2-3 pages and provide a high-level summary of the assessment findings. The intention is to provide enough information in this section so the audience does not need to reference previous documents. Please include the species scientific name at the first mention of its common name. -->
+Walleye pollock (*Gadus chalcogrammus*) are broadly distributed across the North Pacific, with the Eastern Bering Sea (EBS) supporting one of the largest and most economically important population centers. Pollock is also a central forage and predator pathway in the EBS food web, so the stock assessment is used for both harvest management and broader ecosystem context.
 
 ## Stock ID
 
-<!-- Provide a detailed description of the stock, if appropriate, as well as quantitative studies or data behind the decision-making process. -->
+The EBS assessment tracks the stock managed under the BSAI framework, using long-term fishery and survey records that resolve trends in biomass, recruitment, and exploitation. Stock-structure evaluations in recent years have combined genetics, cohort synchrony, and regional growth-pattern comparisons; these lines of evidence generally support current management delineations while continuing to highlight connectivity questions near adjacent regions.
 
 
 ## Management History
@@ -14,15 +13,15 @@ Testing adding in an introduction for `r params$species`. There is currently no 
 <!---
 Briefly describe the management history of the stock and status. Please only touch on historical policies that would have impacted modeling decisions or would be critical knowledge about the species that might affect its population dynamics.
 --->
+Directed foreign fisheries began in the 1960s, domestic harvest expanded through the 1980s, and the modern management system now operates through annual harvest specifications under Amendment 56 control rules. Two seasonal fishery periods (A and B seasons), TAC allocation programs, and bycatch constraints have shaped both fishing patterns and the data streams used in assessment. Observer coverage and electronic monitoring programs have also strengthened catch and composition data quality over time.
 
 ## Fishery Descriptions
 
 <!---
 Short summary of fleet composition (i.e., boat types), gear types, species targeted, and fishing grounds (one paragraph).
 --->
+The directed pollock fishery is prosecuted primarily with pelagic trawl gear by at-sea and shore-based sectors, with catches typically concentrated in the southeastern EBS but varying seasonally and interannually with fish distribution, regulations, and bycatch avoidance. Pollock dominates retained catch, and discard rates have generally remained low in the modern period relative to pre-rationalization years.
 
 ## Ecosystem Considerations
 
-<!--- If this section is not relevant, please leave the following statement in the report --->
-Ecosystem considerations and/or climate indicators were not included in this assessment.
-
+Environmental variability remains a key source of uncertainty in recruitment, growth, and spatial availability. This report does not implement a fully coupled ecosystem model inside the core ASAR workflow, but interpretation considers climate and ecosystem indicators (e.g., thermal conditions, prey fields, predator dynamics, and fishery spatial behavior) consistent with the broader EBS pollock assessment process.

@@ -423,7 +423,7 @@ append_pmout_enrichment <- function(out_new, pmout_path, terminal_year) {
   out_new
 }
 
-build_comparison_artifacts <- function(compares_path, tables_dir, figures_dir, assessment_year, f40_df) {
+build_comparison_artifacts <- function(compares_path, tables_dir, figures_dir, assessment_year, f40_df, pmout_path = NULL) {
   compares <- qs::qread(compares_path)
   ts_list <- lapply(compares, function(x) x$ts)
   ts_df <- dplyr::bind_rows(ts_list)
@@ -441,24 +441,68 @@ build_comparison_artifacts <- function(compares_path, tables_dir, figures_dir, a
     )
 
   metrics <- c("SSB", "Recruits")
-  plot_df <- ts_df |>
-    dplyr::filter(type %in% metrics, !is.na(value), Year <= assessment_year)
+  plot_df <- NULL
+  if (!is.null(pmout_path) && nzchar(pmout_path) && file.exists(pmout_path)) {
+    pmout <- readRDS(pmout_path)
+    if (is.list(pmout) &&
+      "SSB" %in% names(pmout) && is.matrix(pmout$SSB) && ncol(pmout$SSB) >= 2 &&
+      "R" %in% names(pmout) && is.matrix(pmout$R) && ncol(pmout$R) >= 2) {
+      plot_df <- dplyr::bind_rows(
+        data.frame(
+          Year = as.integer(pmout$SSB[, 1]),
+          value = as_numeric_clean(pmout$SSB[, 2]),
+          type = "SSB",
+          stringsAsFactors = FALSE
+        ),
+        data.frame(
+          Year = as.integer(pmout$R[, 1]),
+          value = as_numeric_clean(pmout$R[, 2]),
+          type = "Recruits",
+          stringsAsFactors = FALSE
+        )
+      ) |>
+        dplyr::filter(type %in% metrics, !is.na(value), Year <= assessment_year)
+    }
+  }
 
-  model_plot <- ggplot2::ggplot(plot_df, ggplot2::aes(x = Year, y = value, color = source)) +
-    ggplot2::geom_line(linewidth = 0.7, alpha = 0.9) +
-    ggplot2::facet_wrap(~type, scales = "free_y", ncol = 1) +
-    ggplot2::theme_minimal(base_size = 10) +
-    ggplot2::labs(
-      x = "Year",
-      y = "Estimate",
-      color = "Model"
-    )
+  using_pmout_plot <- !is.null(plot_df) && nrow(plot_df) > 0
+  if (!using_pmout_plot) {
+    plot_df <- ts_df |>
+      dplyr::filter(type %in% metrics, !is.na(value), Year <= assessment_year)
+  }
+
+  if (using_pmout_plot) {
+    model_plot <- ggplot2::ggplot(plot_df, ggplot2::aes(x = Year, y = value)) +
+      ggplot2::geom_line(linewidth = 0.8, color = "#1f77b4") +
+      ggplot2::facet_wrap(~type, scales = "free_y", ncol = 1) +
+      ggplot2::theme_minimal(base_size = 10) +
+      ggplot2::labs(
+        x = "Year",
+        y = "Estimate"
+      )
+
+    fig_cap <- paste0("Base-model SSB and recruitment from pmout through ", assessment_year, ".")
+    fig_alt <- paste0("Line plot showing base-model SSB and recruitment time series through ", assessment_year, ".")
+  } else {
+    model_plot <- ggplot2::ggplot(plot_df, ggplot2::aes(x = Year, y = value, color = source)) +
+      ggplot2::geom_line(linewidth = 0.7, alpha = 0.9) +
+      ggplot2::facet_wrap(~type, scales = "free_y", ncol = 1) +
+      ggplot2::theme_minimal(base_size = 10) +
+      ggplot2::labs(
+        x = "Year",
+        y = "Estimate",
+        color = "Model"
+      )
+
+    fig_cap <- paste0("Model comparison of SSB and recruitment through ", assessment_year, ".")
+    fig_alt <- paste0("Line plot comparing SSB and recruitment trajectories by model through ", assessment_year, ".")
+  }
 
   rda <- list(
     figure = model_plot,
-    cap = paste0("Model comparison of SSB and recruitment through ", assessment_year, "."),
-    caption = paste0("Model comparison of SSB and recruitment through ", assessment_year, "."),
-    alt_text = paste0("Line plot comparing SSB and recruitment trajectories by model through ", assessment_year, ".")
+    cap = fig_cap,
+    caption = fig_cap,
+    alt_text = fig_alt
   )
   save(rda, file = file.path(figures_dir, "model_timeseries_figure.rda"))
 
@@ -600,7 +644,8 @@ main <- function() {
     tables_dir = tables_dir,
     figures_dir = figures_dir,
     assessment_year = assessment_year,
-    f40_df = f40_df
+    f40_df = f40_df,
+    pmout_path = pmout_rds
   )
 
   if (copy_figures) {
