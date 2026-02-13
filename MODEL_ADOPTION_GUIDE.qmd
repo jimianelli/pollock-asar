@@ -164,3 +164,66 @@ A stable pattern is:
 4. `render_asar_report()`
 
 This keeps model ingestion modular while preserving a single, predictable report build path.
+
+## Appendix A) Current Pollock Bridge Gaps (What Is Still Missing)
+
+This appendix captures remaining gaps in the current pollock adoption
+(`ebs_pollock` -> `asar`) so new model integrations can avoid repeating them.
+
+### A.1 Report Portability Is Still Incomplete
+
+Several report chunks still read inputs using machine-specific absolute paths.
+Examples include:
+
+- `report/04b_assessment-results.qmd` (`pm.par` path)
+- `report/04e_assessment-projections.qmd` (`F40_t.rep` path)
+- `report/08_tables.qmd` and `report/09_figures.qmd` (hard-coded `tables/` and `figures/` roots)
+
+What is missing:
+
+1. Parameterized/relative input paths across all report chapters.
+2. A fully self-contained report build that can run outside the current local filesystem layout.
+
+### A.2 Figure Packaging Is Partial
+
+`build_asar_bridge.R` currently writes one packaged comparison figure
+(`model_timeseries_figure.rda`) and two packaged tables, but most report figures are still
+direct static PNG references.
+
+What is missing:
+
+1. A full set of ASAR-style packaged figure artifacts (`rda$figure`, `rda$cap`, `rda$alt_text`)
+   for key diagnostics (including BTS/ATS/AVO suites).
+2. A single figure-generation path that does not rely on pre-existing copied PNGs.
+
+### A.3 Some `out_new` Mappings Need Model-Specific Validation
+
+The pollock bridge currently uses pragmatic mappings that should be validated per model:
+
+- `landings_observed` is populated from `catch_obs`.
+- `spawning_biomass_msy` is populated from `Bmsy` in `F40_t.rep`.
+
+What is missing:
+
+1. Explicit confirmation that these mappings are semantically correct for each adopted model.
+2. Replacement with true model-native fields where available.
+
+### A.4 Multi-Model Input Contract Is Rigid
+
+Comparison artifacts assume a specific `compares.qs` structure (`type`, `value`, `Year`,
+`source`) and stop if it changes.
+
+What is missing:
+
+1. Adapter functions for alternate comparison formats.
+2. Validation/reporting that degrades gracefully instead of hard-failing on schema changes.
+
+### A.5 Direct Source-File Dependency Persists In Narrative Chunks
+
+Some narrative sections still pull values directly from source-run files instead of relying only
+on standardized ASAR artifacts.
+
+What is missing:
+
+1. A clean boundary where report rendering consumes only bridged outputs.
+2. Reduced coupling to source-run directory layout for reproducibility and portability.

@@ -152,6 +152,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#qa-checklist-use-every-time" id="toc-qa-checklist-use-every-time" class="nav-link" data-scroll-target="#qa-checklist-use-every-time">5) QA Checklist (Use Every Time)</a></li>
   <li><a href="#common-failure-modes" id="toc-common-failure-modes" class="nav-link" data-scroll-target="#common-failure-modes">6) Common Failure Modes</a></li>
   <li><a href="#practical-pattern-for-additional-models" id="toc-practical-pattern-for-additional-models" class="nav-link" data-scroll-target="#practical-pattern-for-additional-models">7) Practical Pattern For Additional Models</a></li>
+  <li><a href="#appendix-a-current-pollock-bridge-gaps-what-is-still-missing" id="toc-appendix-a-current-pollock-bridge-gaps-what-is-still-missing" class="nav-link" data-scroll-target="#appendix-a-current-pollock-bridge-gaps-what-is-still-missing">Appendix A) Current Pollock Bridge Gaps (What Is Still Missing)</a>
+  <ul class="collapse">
+  <li><a href="#a.1-report-portability-is-still-incomplete" id="toc-a.1-report-portability-is-still-incomplete" class="nav-link" data-scroll-target="#a.1-report-portability-is-still-incomplete">A.1 Report Portability Is Still Incomplete</a></li>
+  <li><a href="#a.2-figure-packaging-is-partial" id="toc-a.2-figure-packaging-is-partial" class="nav-link" data-scroll-target="#a.2-figure-packaging-is-partial">A.2 Figure Packaging Is Partial</a></li>
+  <li><a href="#a.3-some-out_new-mappings-need-model-specific-validation" id="toc-a.3-some-out_new-mappings-need-model-specific-validation" class="nav-link" data-scroll-target="#a.3-some-out_new-mappings-need-model-specific-validation">A.3 Some <code>out_new</code> Mappings Need Model-Specific Validation</a></li>
+  <li><a href="#a.4-multi-model-input-contract-is-rigid" id="toc-a.4-multi-model-input-contract-is-rigid" class="nav-link" data-scroll-target="#a.4-multi-model-input-contract-is-rigid">A.4 Multi-Model Input Contract Is Rigid</a></li>
+  <li><a href="#a.5-direct-source-file-dependency-persists-in-narrative-chunks" id="toc-a.5-direct-source-file-dependency-persists-in-narrative-chunks" class="nav-link" data-scroll-target="#a.5-direct-source-file-dependency-persists-in-narrative-chunks">A.5 Direct Source-File Dependency Persists In Narrative Chunks</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -342,8 +350,66 @@ ul.task-list li input[type="checkbox"] {
 <li><code>render_asar_report()</code></li>
 </ol>
 <p>This keeps model ingestion modular while preserving a single, predictable report build path.</p>
+</section>
+<section id="appendix-a-current-pollock-bridge-gaps-what-is-still-missing" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-a-current-pollock-bridge-gaps-what-is-still-missing">Appendix A) Current Pollock Bridge Gaps (What Is Still Missing)</h2>
+<p>This appendix captures remaining gaps in the current pollock adoption (<code>ebs_pollock</code> -&gt; <code>asar</code>) so new model integrations can avoid repeating them.</p>
+<section id="a.1-report-portability-is-still-incomplete" class="level3">
+<h3 class="anchored" data-anchor-id="a.1-report-portability-is-still-incomplete">A.1 Report Portability Is Still Incomplete</h3>
+<p>Several report chunks still read inputs using machine-specific absolute paths. Examples include:</p>
+<ul>
+<li><code>report/04b_assessment-results.qmd</code> (<code>pm.par</code> path)</li>
+<li><code>report/04e_assessment-projections.qmd</code> (<code>F40_t.rep</code> path)</li>
+<li><code>report/08_tables.qmd</code> and <code>report/09_figures.qmd</code> (hard-coded <code>tables/</code> and <code>figures/</code> roots)</li>
+</ul>
+<p>What is missing:</p>
+<ol type="1">
+<li>Parameterized/relative input paths across all report chapters.</li>
+<li>A fully self-contained report build that can run outside the current local filesystem layout.</li>
+</ol>
+</section>
+<section id="a.2-figure-packaging-is-partial" class="level3">
+<h3 class="anchored" data-anchor-id="a.2-figure-packaging-is-partial">A.2 Figure Packaging Is Partial</h3>
+<p><code>build_asar_bridge.R</code> currently writes one packaged comparison figure (<code>model_timeseries_figure.rda</code>) and two packaged tables, but most report figures are still direct static PNG references.</p>
+<p>What is missing:</p>
+<ol type="1">
+<li>A full set of ASAR-style packaged figure artifacts (<code>rda$figure</code>, <code>rda$cap</code>, <code>rda$alt_text</code>) for key diagnostics (including BTS/ATS/AVO suites).</li>
+<li>A single figure-generation path that does not rely on pre-existing copied PNGs.</li>
+</ol>
+</section>
+<section id="a.3-some-out_new-mappings-need-model-specific-validation" class="level3">
+<h3 class="anchored" data-anchor-id="a.3-some-out_new-mappings-need-model-specific-validation">A.3 Some <code>out_new</code> Mappings Need Model-Specific Validation</h3>
+<p>The pollock bridge currently uses pragmatic mappings that should be validated per model:</p>
+<ul>
+<li><code>landings_observed</code> is populated from <code>catch_obs</code>.</li>
+<li><code>spawning_biomass_msy</code> is populated from <code>Bmsy</code> in <code>F40_t.rep</code>.</li>
+</ul>
+<p>What is missing:</p>
+<ol type="1">
+<li>Explicit confirmation that these mappings are semantically correct for each adopted model.</li>
+<li>Replacement with true model-native fields where available.</li>
+</ol>
+</section>
+<section id="a.4-multi-model-input-contract-is-rigid" class="level3">
+<h3 class="anchored" data-anchor-id="a.4-multi-model-input-contract-is-rigid">A.4 Multi-Model Input Contract Is Rigid</h3>
+<p>Comparison artifacts assume a specific <code>compares.qs</code> structure (<code>type</code>, <code>value</code>, <code>Year</code>, <code>source</code>) and stop if it changes.</p>
+<p>What is missing:</p>
+<ol type="1">
+<li>Adapter functions for alternate comparison formats.</li>
+<li>Validation/reporting that degrades gracefully instead of hard-failing on schema changes.</li>
+</ol>
+</section>
+<section id="a.5-direct-source-file-dependency-persists-in-narrative-chunks" class="level3">
+<h3 class="anchored" data-anchor-id="a.5-direct-source-file-dependency-persists-in-narrative-chunks">A.5 Direct Source-File Dependency Persists In Narrative Chunks</h3>
+<p>Some narrative sections still pull values directly from source-run files instead of relying only on standardized ASAR artifacts.</p>
+<p>What is missing:</p>
+<ol type="1">
+<li>A clean boundary where report rendering consumes only bridged outputs.</li>
+<li>Reduced coupling to source-run directory layout for reproducibility and portability.</li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -130,6 +130,16 @@
     ]
   },
   {
+    "objectID": "MODEL_ADOPTION_GUIDE.html#appendix-a-current-pollock-bridge-gaps-what-is-still-missing",
+    "href": "MODEL_ADOPTION_GUIDE.html#appendix-a-current-pollock-bridge-gaps-what-is-still-missing",
+    "title": "Guide: Adopting New Models Into The ASAR Framework",
+    "section": "Appendix A) Current Pollock Bridge Gaps (What Is Still Missing)",
+    "text": "Appendix A) Current Pollock Bridge Gaps (What Is Still Missing)\nThis appendix captures remaining gaps in the current pollock adoption (ebs_pollock -&gt; asar) so new model integrations can avoid repeating them.\n\nA.1 Report Portability Is Still Incomplete\nSeveral report chunks still read inputs using machine-specific absolute paths. Examples include:\n\nreport/04b_assessment-results.qmd (pm.par path)\nreport/04e_assessment-projections.qmd (F40_t.rep path)\nreport/08_tables.qmd and report/09_figures.qmd (hard-coded tables/ and figures/ roots)\n\nWhat is missing:\n\nParameterized/relative input paths across all report chapters.\nA fully self-contained report build that can run outside the current local filesystem layout.\n\n\n\nA.2 Figure Packaging Is Partial\nbuild_asar_bridge.R currently writes one packaged comparison figure (model_timeseries_figure.rda) and two packaged tables, but most report figures are still direct static PNG references.\nWhat is missing:\n\nA full set of ASAR-style packaged figure artifacts (rda$figure, rda$cap, rda$alt_text) for key diagnostics (including BTS/ATS/AVO suites).\nA single figure-generation path that does not rely on pre-existing copied PNGs.\n\n\n\nA.3 Some out_new Mappings Need Model-Specific Validation\nThe pollock bridge currently uses pragmatic mappings that should be validated per model:\n\nlandings_observed is populated from catch_obs.\nspawning_biomass_msy is populated from Bmsy in F40_t.rep.\n\nWhat is missing:\n\nExplicit confirmation that these mappings are semantically correct for each adopted model.\nReplacement with true model-native fields where available.\n\n\n\nA.4 Multi-Model Input Contract Is Rigid\nComparison artifacts assume a specific compares.qs structure (type, value, Year, source) and stop if it changes.\nWhat is missing:\n\nAdapter functions for alternate comparison formats.\nValidation/reporting that degrades gracefully instead of hard-failing on schema changes.\n\n\n\nA.5 Direct Source-File Dependency Persists In Narrative Chunks\nSome narrative sections still pull values directly from source-run files instead of relying only on standardized ASAR artifacts.\nWhat is missing:\n\nA clean boundary where report rendering consumes only bridged outputs.\nReduced coupling to source-run directory layout for reproducibility and portability.",
+    "crumbs": [
+      "Model Adoption Guide"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Assessment of the Walleye pollock Stock in the Eastern Bering Sea",
