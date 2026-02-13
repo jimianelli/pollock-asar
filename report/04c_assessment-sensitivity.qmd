@@ -9,7 +9,9 @@ survey information relative to other index components. Key diagnostics include:
 
 - Relative SSB trajectories: @fig-loo_rel_ssb
 - Recruitment trajectories: @fig-loo_recruits
-- Survey-index fits: @fig-loo_bts_index, @fig-loo_ats_index, @fig-loo_avo_index
+- Survey-index fits (BTS = Bottom trawl survey; ATS = Acoustic-trawl survey;
+  AVO = Acoustic vessels of opportunity): @fig-loo_bts_index, @fig-loo_ats_index,
+  @fig-loo_avo_index
 
 ### Ageing and Composition Treatment
 

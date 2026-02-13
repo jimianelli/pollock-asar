@@ -37,11 +37,11 @@ model_timeseries_alt_text <- model_timeseries_plot_rda$alt_text
 model_timeseries_plot
 ``` 
 
-![Ats Osa.](figures/ats_osa.png){#fig-ats_osa}
+![ATS (Acoustic-trawl survey) observed-vs-expected fit.](figures/ats_osa.png){#fig-ats_osa}
 
-![Avo Map Yr.](figures/avo_map_yr.png){#fig-avo_map_yr}
+![AVO (Acoustic vessels of opportunity) spatial coverage by year.](figures/avo_map_yr.png){#fig-avo_map_yr}
 
-![Bts Osa.](figures/bts_osa.png){#fig-bts_osa}
+![BTS (Bottom trawl survey) observed-vs-expected fit.](figures/bts_osa.png){#fig-bts_osa}
 
 ![ConsisFTN.](figures/consisFTN.png){#fig-consisFTN}
 
@@ -59,17 +59,17 @@ model_timeseries_plot
 
 ![Fsh Wt Frq Yr.](figures/fsh_wt_frq_yr.png){#fig-fsh_wt_frq_yr}
 
-![Loo Ats Index Present.](figures/loo_ats_index_present.png){#fig-loo_ats_index_present}
+![Leave-one-out ATS (Acoustic-trawl survey) index: present-year set.](figures/loo_ats_index_present.png){#fig-loo_ats_index_present}
 
-![Loo Ats Index.](figures/loo_ats_index.png){#fig-loo_ats_index}
+![Leave-one-out ATS (Acoustic-trawl survey) index.](figures/loo_ats_index.png){#fig-loo_ats_index}
 
-![Loo Avo Index Present.](figures/loo_avo_index_present.png){#fig-loo_avo_index_present}
+![Leave-one-out AVO (Acoustic vessels of opportunity) index: present-year set.](figures/loo_avo_index_present.png){#fig-loo_avo_index_present}
 
-![Loo Avo Index.](figures/loo_avo_index.png){#fig-loo_avo_index}
+![Leave-one-out AVO (Acoustic vessels of opportunity) index.](figures/loo_avo_index.png){#fig-loo_avo_index}
 
-![Loo Bts Index Present.](figures/loo_bts_index_present.png){#fig-loo_bts_index_present}
+![Leave-one-out BTS (Bottom trawl survey) index: present-year set.](figures/loo_bts_index_present.png){#fig-loo_bts_index_present}
 
-![Loo Bts Index.](figures/loo_bts_index.png){#fig-loo_bts_index}
+![Leave-one-out BTS (Bottom trawl survey) index.](figures/loo_bts_index.png){#fig-loo_bts_index}
 
 ![Loo Recruits Present.](figures/loo_recruits_present.png){#fig-loo_recruits_present}
 
@@ -85,11 +85,11 @@ model_timeseries_plot
 
 ![Mcmc Slow.](figures/mcmc_slow.png){#fig-mcmc_slow}
 
-![Mmat Ats Index.](figures/Mmat_ats_index.png){#fig-Mmat_ats_index}
+![M-at-age sensitivity: ATS (Acoustic-trawl survey) index.](figures/Mmat_ats_index.png){#fig-Mmat_ats_index}
 
-![Mmat Avo Index.](figures/Mmat_avo_index.png){#fig-Mmat_avo_index}
+![M-at-age sensitivity: AVO (Acoustic vessels of opportunity) index.](figures/Mmat_avo_index.png){#fig-Mmat_avo_index}
 
-![Mmat Bts Index.](figures/Mmat_bts_index.png){#fig-Mmat_bts_index}
+![M-at-age sensitivity: BTS (Bottom trawl survey) index.](figures/Mmat_bts_index.png){#fig-Mmat_bts_index}
 
 ![Mmat Recruits.](figures/Mmat_recruits.png){#fig-Mmat_recruits}
 
@@ -101,9 +101,9 @@ model_timeseries_plot
 
 ![Pollock.](figures/pollock.png){#fig-pollock}
 
-![ProportionsATS.](figures/proportionsATS.png){#fig-proportionsATS}
+![Age-composition proportions for ATS (Acoustic-trawl survey).](figures/proportionsATS.png){#fig-proportionsATS}
 
-![ProportionsBTS.](figures/proportionsBTS.png){#fig-proportionsBTS}
+![Age-composition proportions for BTS (Bottom trawl survey).](figures/proportionsBTS.png){#fig-proportionsBTS}
 
 ![ProportionsFSH.](figures/proportionsFSH.png){#fig-proportionsFSH}
 

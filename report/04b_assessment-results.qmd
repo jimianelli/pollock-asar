@@ -18,7 +18,8 @@ Time-series trajectories for spawning biomass and recruitment across model runs 
 
 Model-fit diagnostics imported from the 2025 source workflow are retained in the figures
 section, including composition and index fit summaries (for example @fig-mod_fit_agg_comp,
-@fig-bts_osa, and @fig-ats_osa).
+@fig-bts_osa (Bottom trawl survey, BTS), @fig-ats_osa (Acoustic-trawl survey, ATS), and
+@fig-avo_map_yr (Acoustic vessels of opportunity, AVO).
 
 ### Model Diagnostics
 

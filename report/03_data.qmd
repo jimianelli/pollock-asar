@@ -21,7 +21,7 @@ Primary fishery-independent and auxiliary index streams are:
 
 1. EBS bottom-trawl survey (BTS)
 2. Acoustic-trawl survey (ATS)
-3. AVO-related index information
+3. Acoustic vessels of opportunity (AVO) index information
 
 Comparative index diagnostics retained in this report include
 @fig-loo_bts_index, @fig-loo_ats_index, and @fig-loo_avo_index.

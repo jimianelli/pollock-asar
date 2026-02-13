@@ -25,6 +25,12 @@ The assessment integrates long-term fishery catch/composition information with f
 independent survey indices, including BTS, ATS, and AVO-related data products. These
 information streams remain central to trend estimation, diagnostics, and sensitivity analysis.
 
+### Survey Index Glossary
+
+- **BTS**: Bottom trawl survey
+- **ATS**: Acoustic-trawl survey
+- **AVO**: Acoustic vessels of opportunity
+
 ## Ecosystem Considerations
 
 Ecosystem and climate context are included as supporting evidence (for example,
