@@ -7,6 +7,7 @@ report/*_files/
 report/*.knit.md
 report/*.tex
 report/figures
+report/ebswp_frozen_stage/
 /Walleye_pollock_SAR_2025.pdf
 Walleye_pollock_SAR_2025.html
 

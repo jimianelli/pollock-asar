@@ -2,7 +2,7 @@
 
 This folder bridges assessment outputs from:
 
-- `/Users/jim/_mymods/noaa-afsc/ebs_pollock`
+- `/Users/jim/_mymods/afsc-assessments/ebs_pollock_safe`
 
 into ASAR report structure using:
 
@@ -60,7 +60,9 @@ The left sidebar includes:
 To refresh the published site after rendering:
 
 ```bash
-quarto render /Users/jim/_mymods/pollock/asar/report/SAR_EBS_Walleye_pollock_skeleton.qmd --to html
-quarto render /Users/jim/_mymods/pollock/asar/report/SAR_EBS_Walleye_pollock_skeleton.qmd --to pdf --output Walleye_pollock_SAR_2025.pdf
 /Users/jim/_mymods/pollock/asar/scripts/update_docs_site.sh
 ```
+
+`update_docs_site.sh` now imports assessment text/content from:
+
+- `/Users/jim/_mymods/afsc-assessments/ebs_pollock_safe/ebswp.qmd`

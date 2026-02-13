@@ -3,62 +3,91 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-REPORT_HTML_ROOT="$ROOT/Walleye_pollock_SAR_2025.html"
-REPORT_HTML_REPORT="$ROOT/report/Walleye_pollock_SAR_2025.html"
-REPORT_QMD="$ROOT/report/SAR_EBS_Walleye_pollock_skeleton.qmd"
-REPORT_PDF="$ROOT/Walleye_pollock_SAR_2025.pdf"
-REPORT_ASSETS="$ROOT/report/SAR_EBS_Walleye_pollock_skeleton_files"
-REPORT_SUPPORT="$ROOT/report/support_files"
-FIGURES_DIR="$ROOT/figures"
+SOURCE_DIR="/Users/jim/_mymods/afsc-assessments/ebs_pollock_safe"
+SOURCE_QMD="$SOURCE_DIR/ebswp.qmd"
+SOURCE_FREEZE_HTML_JSON="$SOURCE_DIR/.quarto/_freeze/ebswp/execute-results/html.json"
+
+STAGE_DIR="$ROOT/report/ebswp_frozen_stage"
+STAGE_QMD="$STAGE_DIR/ebswp_frozen.qmd"
+STAGE_HTML="$STAGE_DIR/ebswp.html"
+STAGE_PDF="$STAGE_DIR/ebswp.pdf"
+
 DOCS_DIR="$ROOT/docs"
 ASSESS_DIR="$DOCS_DIR/assessment"
 
-if [[ -f "$REPORT_HTML_ROOT" ]]; then
-  REPORT_HTML="$REPORT_HTML_ROOT"
-elif [[ -f "$REPORT_HTML_REPORT" ]]; then
-  REPORT_HTML="$REPORT_HTML_REPORT"
-else
-  echo "Missing report HTML: $REPORT_HTML_ROOT (or $REPORT_HTML_REPORT)" >&2
-  echo "Render first, e.g.: quarto render $ROOT/report/SAR_EBS_Walleye_pollock_skeleton.qmd --to html" >&2
+if [[ ! -f "$SOURCE_QMD" ]]; then
+  echo "Missing source assessment qmd: $SOURCE_QMD" >&2
+  exit 1
+fi
+
+if [[ ! -f "$SOURCE_FREEZE_HTML_JSON" ]]; then
+  echo "Missing frozen execution results: $SOURCE_FREEZE_HTML_JSON" >&2
+  exit 1
+fi
+
+# Stage the safe assessment assets locally.
+rm -rf "$STAGE_DIR"
+mkdir -p "$STAGE_DIR"
+cp -R "$SOURCE_DIR/doc" "$STAGE_DIR/"
+cp "$SOURCE_DIR/cjfas.csl" "$STAGE_DIR/"
+if [[ -f "$SOURCE_DIR/mystyle.css" ]]; then
+  cp "$SOURCE_DIR/mystyle.css" "$STAGE_DIR/"
+fi
+
+# Build a renderable assessment qmd from frozen execution output.
+jq -r '.result.markdown' "$SOURCE_FREEZE_HTML_JSON" > "$STAGE_QMD"
+
+# Remove custom filter reference that doesn't exist in this repository.
+sed -i '' '/^filters:/,/^format:/ { /^filters:/d; /^  - highlight-text/d; }' "$STAGE_QMD"
+
+pushd "$STAGE_DIR" >/dev/null
+
+# Ensure referenced figure files exist in the expected extension.
+rg -o 'doc/figs/[A-Za-z0-9_\-]+\.(png|pdf|jpg|jpeg|svg|webp)' "$STAGE_QMD" | sort -u > refs.txt
+while read -r f; do
+  [[ -f "$f" ]] && continue
+  base="${f%.*}"
+  ext="${f##*.}"
+  if [[ "$ext" == "png" && -f "${base}.pdf" ]]; then
+    sips -s format png "${base}.pdf" --out "${base}.png" >/dev/null
+  elif [[ "$ext" == "pdf" && -f "${base}.png" ]]; then
+    sips -s format pdf "${base}.png" --out "${base}.pdf" >/dev/null
+  elif [[ "$ext" == "jpg" && -f "${base}.png" ]]; then
+    cp "${base}.png" "${base}.jpg"
+  elif [[ "$ext" == "jpeg" && -f "${base}.png" ]]; then
+    cp "${base}.png" "${base}.jpeg"
+  fi
+done < refs.txt
+
+# Render the imported safe assessment.
+quarto render "$STAGE_QMD" --to html --output ebswp.html
+quarto render "$STAGE_QMD" --to pdf --output ebswp.pdf
+
+popd >/dev/null
+
+if [[ ! -f "$STAGE_HTML" ]]; then
+  echo "Failed to create assessment HTML in stage dir: $STAGE_HTML" >&2
   exit 1
 fi
 
 # Render website pages (index + guide) to docs/.
 quarto render "$ROOT"
 
-# Ensure report-local figures path exists for PDF rendering.
-if [[ ! -e "$ROOT/report/figures" ]]; then
-  ln -s ../figures "$ROOT/report/figures"
-fi
-
-# Build assessment PDF if it's missing.
-if [[ ! -f "$REPORT_PDF" ]]; then
-  echo "Assessment PDF missing; attempting to render: $REPORT_PDF"
-  if ! (
-    cd "$ROOT/report" && \
-    quarto render SAR_EBS_Walleye_pollock_skeleton.qmd --to pdf --output ../Walleye_pollock_SAR_2025.pdf
-  ); then
-    echo "Warning: PDF render failed; site will be published without PDF artifact." >&2
-  fi
-fi
-
 # Copy assessment artifacts used by the embedded iframe on index.qmd.
 rm -rf "$ASSESS_DIR"
 mkdir -p "$ASSESS_DIR"
-cp "$REPORT_HTML" "$ASSESS_DIR/Walleye_pollock_SAR_2025.html"
-if [[ -f "$REPORT_PDF" ]]; then
-  cp "$REPORT_PDF" "$ASSESS_DIR/Walleye_pollock_SAR_2025.pdf"
-fi
-cp -R "$REPORT_ASSETS" "$ASSESS_DIR/"
-if [[ -d "$REPORT_SUPPORT" ]]; then
-  cp -R "$REPORT_SUPPORT" "$ASSESS_DIR/"
-fi
-cp -R "$FIGURES_DIR" "$ASSESS_DIR/"
 
-# Embedded assessment only needs static image files in assessment/figures.
-find "$ASSESS_DIR/figures" -type f ! \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.gif' -o -iname '*.svg' -o -iname '*.webp' \) -delete
-# Explicitly exclude deprecated cartoon from published docs.
-rm -f "$ASSESS_DIR/figures/pollock_cartoon.png"
+cp "$STAGE_HTML" "$ASSESS_DIR/Walleye_pollock_SAR_2025.html"
+if [[ -f "$STAGE_PDF" ]]; then
+  cp "$STAGE_PDF" "$ASSESS_DIR/Walleye_pollock_SAR_2025.pdf"
+fi
+if [[ -d "$STAGE_DIR/ebswp_frozen_files" ]]; then
+  cp -R "$STAGE_DIR/ebswp_frozen_files" "$ASSESS_DIR/"
+fi
+cp -R "$STAGE_DIR/doc" "$ASSESS_DIR/"
+if [[ -f "$STAGE_DIR/mystyle.css" ]]; then
+  cp "$STAGE_DIR/mystyle.css" "$ASSESS_DIR/"
+fi
 
 # Disable Jekyll processing to avoid any underscore/path quirks.
 touch "$DOCS_DIR/.nojekyll"
