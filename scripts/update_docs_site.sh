@@ -15,6 +15,20 @@ STAGE_PDF="$STAGE_DIR/ebswp.pdf"
 DOCS_DIR="$ROOT/docs"
 ASSESS_DIR="$DOCS_DIR/assessment"
 
+deref_symlinks() {
+  local root="$1"
+  while IFS= read -r link; do
+    if [[ -f "$link" ]]; then
+      tmp="${link}.resolved_tmp"
+      cp -L "$link" "$tmp"
+      rm "$link"
+      mv "$tmp" "$link"
+    elif [[ ! -e "$link" ]]; then
+      rm -f "$link"
+    fi
+  done < <(find "$root" -type l)
+}
+
 if [[ ! -f "$SOURCE_QMD" ]]; then
   echo "Missing source assessment qmd: $SOURCE_QMD" >&2
   exit 1
@@ -28,11 +42,12 @@ fi
 # Stage the safe assessment assets locally.
 rm -rf "$STAGE_DIR"
 mkdir -p "$STAGE_DIR"
-cp -R "$SOURCE_DIR/doc" "$STAGE_DIR/"
+cp -RL "$SOURCE_DIR/doc" "$STAGE_DIR/"
 cp "$SOURCE_DIR/cjfas.csl" "$STAGE_DIR/"
 if [[ -f "$SOURCE_DIR/mystyle.css" ]]; then
   cp "$SOURCE_DIR/mystyle.css" "$STAGE_DIR/"
 fi
+deref_symlinks "$STAGE_DIR/doc"
 
 # Build a renderable assessment qmd from frozen execution output.
 jq -r '.result.markdown' "$SOURCE_FREEZE_HTML_JSON" > "$STAGE_QMD"
@@ -88,6 +103,7 @@ cp -R "$STAGE_DIR/doc" "$ASSESS_DIR/"
 if [[ -f "$STAGE_DIR/mystyle.css" ]]; then
   cp "$STAGE_DIR/mystyle.css" "$ASSESS_DIR/"
 fi
+deref_symlinks "$ASSESS_DIR"
 
 # Disable Jekyll processing to avoid any underscore/path quirks.
 touch "$DOCS_DIR/.nojekyll"
