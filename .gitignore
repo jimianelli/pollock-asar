@@ -1,0 +1,10 @@
+# OS/editor
+.DS_Store
+
+# Quarto render artifacts (keep source .qmd tracked)
+report/*.html
+report/*_files/
+report/*.knit.md
+
+# Local quarto cache
+.quarto/
