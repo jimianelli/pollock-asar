@@ -44,6 +44,64 @@ dplyr::tibble(
 )
 ```
 
+## Model Equations (Base Assessment)
+
+The base EBS pollock assessment is a statistical age-structured model in which catch, population dynamics, and recruitment are estimated jointly [@fournier1982general; @methot1990; @ianelli1998].
+
+$$
+\begin{aligned}
+C_{t,a} &= \frac{F_{t,a}}{Z_{t,a}}\left(1-e^{-Z_{t,a}}\right)N_{t,a}, \\
+Z_{t,a} &= F_{t,a}+M_{t,a}, \\
+N_{t+1,a+1} &= N_{t,a}e^{-Z_{t,a}} \quad (a=1,\ldots,A-1), \\
+N_{t+1,A} &= N_{t,A-1}e^{-Z_{t,A-1}}+N_{t,A}e^{-Z_{t,A}}, \\
+B_t &= \sum_{a=1}^{A} w_{t,a}\phi_aN_{t,a}, \\
+R_t &= f(B_{t-1})e^{\varepsilon_t}, \quad \varepsilon_t \sim \mathcal{N}(0,\sigma_R^2).
+\end{aligned}
+$$
+
+Fishing mortality is represented with age-specific selectivity and annual deviations:
+
+$$
+F_{t,a}=s_{t,a}\exp(\bar f+\epsilon_t), \quad \epsilon_t \sim \mathcal{N}(0,\sigma_F^2),
+$$
+
+with annual smoothness/temporal-variation penalties applied to selectivity trajectories in the ADMB implementation.
+
+## Application of VAST to Bottom Trawl Survey Results
+
+Bottom trawl survey (BTS) biomass is spatially standardized using a VAST delta-model framework [@thorson2018b; @oleary2021; @oleary2022]. For each observation $y_i$ at location $s_i$ and year $t_i$:
+
+$$
+\Pr(y_i>0)=\operatorname{logit}^{-1}\!\left(\eta_i^{(1)}\right),
+$$
+$$
+y_i \mid y_i>0 \sim \operatorname{Gamma}(\mu_i,\kappa), \quad \log(\mu_i)=\eta_i^{(2)},
+$$
+$$
+\eta^{(k)}(s,t)=\beta_t^{(k)}+\omega^{(k)}(s)+\epsilon^{(k)}(s,t)+X(s,t)\gamma^{(k)},
+$$
+$$
+\epsilon^{(k)}(s,t)=\rho^{(k)}\epsilon^{(k)}(s,t-1)+\xi^{(k)}(s,t).
+$$
+
+The annual biomass index is obtained by summing predicted density over extrapolation-grid cells:
+
+$$
+I_t=\sum_{g=1}^{G} A_g\,\widehat{D}_{g,t},
+$$
+
+where $A_g$ is area of cell $g$, and $\widehat{D}_{g,t}$ is predicted density.
+
+For this ASAR-native report, VAST-standardized BTS results are integrated as a survey index spanning `r start_year`-`r end_year` and compared with other model data streams in the base assessment.
+
+```{r}
+#| label: fig-vast-bts-appendix
+#| fig-cap: "VAST-standardized EBS bottom trawl survey biomass index used in the ASAR-native workflow."
+#| fig-alt: "Time series plot of VAST-standardized bottom trawl survey biomass index for EBS pollock."
+#| echo: false
+knitr::include_graphics(file.path(figures_dir, "Vast_index_updated.png"))
+```
+
 ## Figure and Table Packaging Notes
 
 ASAR uses packaged `.rda` objects for programmatic inclusion:
